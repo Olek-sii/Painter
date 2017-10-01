@@ -10,7 +10,6 @@ namespace Painter.Views
 		public PFigure activeFigure = null;
 
 		private XCommand _xCommand = null;
-		public XCommand XCommand { set => _xCommand = value; }
 
 		public PDraw(XCommand xCommand)
 		{

@@ -181,7 +181,6 @@
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton1.Text = "toolStripButton1";
-			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
 			// 
 			// toolStripButton2
 			// 
@@ -292,7 +291,6 @@
 			this.label1.Size = new System.Drawing.Size(50, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Elements";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// panel2
 			// 
@@ -305,7 +303,6 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(209, 466);
 			this.panel2.TabIndex = 3;
-			this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
 			// 
 			// label7
 			// 
@@ -607,7 +604,6 @@
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
 			this.Text = "Form1";
-			this.Load += new System.EventHandler(this.Form1_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);

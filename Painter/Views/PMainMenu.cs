@@ -7,7 +7,6 @@ namespace Painter.Views
     public class PMainMenu : MenuStrip
     {
 		private XCommand _xCommand = null;
-		public XCommand XCommand { set => _xCommand = value; }
 
 		private ToolStripButton _debugBtn;
 

@@ -1,6 +1,6 @@
 ﻿namespace Painter.Models
 {
-    public interface IPluginFile : IPluginFigure
+    public interface IPluginFile : IPlugin
     {
         string Serialize(MTab mTab);
         MTab DeSerialize(string str);
