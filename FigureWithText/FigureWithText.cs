@@ -1,32 +1,24 @@
-﻿using Painter.Models;
-using Painter.Views;
-using System;
+﻿using Painter.Views;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace FigureWithText
 {
-	public class FigureWithText : PFigure, IPluginFigure
+	class FigureWithText : PFigure
 	{
-		string IPlugin.Name { get => "FWT"; set => throw new NotImplementedException(); }
+		public XText XText { get; }
 
-		public Panel GetElements()
+		public FigureWithText(PFigure pFigure, XText xText)
+			: base(pFigure)
 		{
-			throw new NotImplementedException();
+			XText = xText;
 		}
 
-		public MenuStrip GetMenuStrip()
+		protected override void PFigure_Paint(object sender, PaintEventArgs e)
 		{
-			throw new NotImplementedException();
-		}
-
-		public Panel GetToolBox()
-		{
-			throw new NotImplementedException();
-		}
-
-		public ToolStrip GetToolStrip()
-		{
-			throw new NotImplementedException();
+			base.PFigure_Paint(sender, e);
+			Graphics g = CreateGraphics();
+			g.DrawString(XText.text, DefaultFont, Brushes.Red, new Point(0,0));
 		}
 	}
 }

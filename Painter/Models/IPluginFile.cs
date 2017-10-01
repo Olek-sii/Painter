@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Painter.Models
+﻿namespace Painter.Models
 {
-    interface IPluginFile : IPlugin
+    public interface IPluginFile : IPluginFigure
     {
         string Serialize(MTab mTab);
         MTab DeSerialize(string str);

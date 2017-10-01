@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Painter.Views;
 
 namespace Painter.Models
 {
     public interface IPluginFigure : IPlugin
     {
-
-    }
+		PFigure ActiveFigure { set; }
+		PFigure Process(PFigure figure);
+	}
 }

@@ -4,9 +4,10 @@ namespace Painter.Models
 {
     public interface IPlugin
     {
-        string Name { get; set; }
+        string Name { get; }
+
         ToolStrip GetToolStrip();
-        MenuStrip GetMenuStrip();
+        ToolStripMenuItem GetMenuStrip();
         Panel GetToolBox();
         Panel GetElements();
     }

@@ -2,38 +2,39 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Painter.Controllers
 {
 	public class PluginManager
 	{
-		public static List<Type> pluginTypes = null;
+		public static List<IPluginFigure> figurePlugins = new List<IPluginFigure>();
+		public static List<IPluginFile> formatPlugins = new List<IPluginFile>();
 
-		public static List<Type> Load()
+		public static void LoadPlugins()
 		{
-			Assembly assembly = Assembly.LoadFrom("../../../FigureWithText/bin/Debug/FigureWithText.dll");
+			figurePlugins.Clear();
+			formatPlugins.Clear();
 
-			return assembly.GetTypes()
-				.Where(x => x.GetInterface(typeof(IPlugin).Name) != null)
-				.ToList();
-		}
+			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-		public static void ListPlugins()
-		{
-			pluginTypes = Load();
-			List<IPlugin> plugins = new List<IPlugin>();
-			foreach (Type pluginType in pluginTypes)
+			foreach (string dll in Directory.GetFiles(path, "*.dll"))
 			{
-				IPlugin plugin = Activator.CreateInstance(pluginType) as IPlugin;
-				plugins.Add(plugin);
-			}
+				Assembly assembly =  Assembly.LoadFile(dll);
+				Type[] plugins = assembly.GetTypes().Where(x => x.GetInterface(typeof(IPlugin).Name) != null).ToArray();
 
-			Debug.WriteLine("Available Plugins:");
-			plugins.ForEach(t => Debug.WriteLine(t.Name));
+				Debug.WriteLine("Available Plugins:");
+				foreach (Type pluginType in plugins)
+				{
+					if (pluginType.GetInterface(typeof(IPluginFigure).Name) != null)
+						figurePlugins.Add(Activator.CreateInstance(pluginType) as IPluginFigure);
+					else if (pluginType.GetInterface(typeof(IPluginFile).Name) != null)
+						formatPlugins.Add(Activator.CreateInstance(pluginType) as IPluginFile);
+					Debug.WriteLine(pluginType.Name);
+				}
+			}	
 		}
 	}
 }

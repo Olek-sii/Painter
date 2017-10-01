@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -61,11 +61,20 @@
     <Compile Include="Models\XData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\PDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Views\PElements.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\PFigure.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PFigure.Designer.cs">
+      <DependentUpon>PFigure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PFrame.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\PMainMenu.cs">
       <SubType>Component</SubType>
@@ -88,6 +97,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\PDraw.resx">
+      <DependentUpon>PDraw.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
