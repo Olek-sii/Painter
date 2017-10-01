@@ -1,11 +1,22 @@
-﻿using Painter.Views;
+﻿using Painter.Models;
+using Painter.Views;
 
 namespace Painter.Controllers
 {
 	public class XCommand
 	{
 		private PDraw _activePDraw = null;
-		public PDraw ActivePDraw { set => _activePDraw = value; }
+		public PDraw ActivePDraw
+		{
+			set
+			{
+				_activePDraw = value;
+				_activePlugin.ActiveFigure = _activePDraw.ActiveFigure;
+			}
+		}
+
+		private IPluginFigure _activePlugin;
+		public IPluginFigure ActivePlugin { set => _activePlugin = value; }
 
 		int dCalls = 0;
 		public void Debug()
@@ -15,6 +26,13 @@ namespace Painter.Controllers
 				Localization.Locale = "ru";
 			else
 				Localization.Locale = "en";
+		}
+
+		public PFigure PluginProcess(PFigure figure)
+		{
+			if (_activePlugin == null)
+				return figure;
+			return _activePlugin.Process(figure);
 		}
 	}
 }

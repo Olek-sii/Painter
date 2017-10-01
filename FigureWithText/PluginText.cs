@@ -12,9 +12,12 @@ namespace FigureWithText
 		public PFigure ActiveFigure { set => xCommand.ActiveFigure = value; }
 		public string Name { get => "PluginText"; }
 
-		public Panel GetElements()
+		public RadioButton GetElements()
 		{
-			throw new NotImplementedException();
+			RadioButton radioButton = new RadioButton();
+			radioButton.Text = Name;
+			radioButton.Name = Name;
+			return radioButton;
 		}
 
 		public ToolStripMenuItem GetMenuStrip()

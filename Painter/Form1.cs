@@ -10,6 +10,8 @@ namespace Painter
         {
 			//InitializeComponent();
 
+			Width = 720;
+			Height = 480;
 			PFrame pFrame = new PFrame();
 			pFrame.Dock = DockStyle.Fill;
 			Controls.Add(pFrame);

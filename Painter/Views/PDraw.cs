@@ -1,27 +1,37 @@
 ﻿using Painter.Controllers;
 using Painter.Models;
 using System.Windows.Forms;
+using System;
 
 namespace Painter.Views
 {
 	public class PDraw : UserControl
 	{
-		public XData _xData = new XData();
-		public PFigure activeFigure = null;
-
 		private XCommand _xCommand = null;
+		private PFigure _activeFigure;
+
+		public XData _xData = new XData();
+		public PFigure ActiveFigure
+		{
+			get => _activeFigure;
+			set
+			{
+				_activeFigure = value;
+				_xCommand.ActivePDraw = this;
+			}
+		}
 
 		public PDraw(XCommand xCommand)
 		{
 			_xCommand = xCommand;
+			Click += PDraw_Click;
+		}
 
-			Controls.Add(new PFigure(50, 50, 100, 50, _xData, xCommand));
-
-			PFigure pFigure = new PFigure(50, 150, 100, 50, _xData, _xCommand);
-			IPluginFigure pluginFigure = PluginManager.figurePlugins[0];
-			var f = pluginFigure.Process(pFigure);
-			pluginFigure.ActiveFigure = f;
-			Controls.Add(f);
+		private void PDraw_Click(object sender, EventArgs e)
+		{
+			var mouse = e as MouseEventArgs;
+			PFigure figure = new PFigure(mouse.X, mouse.Y, 50, 50, _xData, _xCommand);
+			Controls.Add(_xCommand.PluginProcess(figure));
 		}
 	}
 }

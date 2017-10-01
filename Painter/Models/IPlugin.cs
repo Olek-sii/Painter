@@ -9,6 +9,6 @@ namespace Painter.Models
         ToolStrip GetToolStrip();
         ToolStripMenuItem GetMenuStrip();
         Panel GetToolBox();
-        Panel GetElements();
+        RadioButton GetElements();
     }
 }
