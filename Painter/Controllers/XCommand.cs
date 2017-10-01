@@ -2,8 +2,8 @@
 
 namespace Painter.Controllers
 {
-    public class XCommand
-    {
+	public class XCommand
+	{
 		private PDraw _activePDraw = null;
 		public PDraw ActivePDraw { set => _activePDraw = value; }
 
@@ -11,6 +11,10 @@ namespace Painter.Controllers
 		public void Debug()
 		{
 			System.Diagnostics.Debug.WriteLine("debug" + dCalls++);
+			if (dCalls % 2 == 1)
+				Localization.Locale = "ru";
+			else
+				Localization.Locale = "en";
 		}
-    }
+	}
 }
