@@ -6,5 +6,15 @@
   "tabs_text_id": "Вкладки",
   "properties_text_id": "Свойства",
   "preferences_text_id": "Настройки",
-  "help_text_id": "Помощь"
+  "help_text_id": "Помощь",
+
+  "new_text_id": "Новая вкладка",
+  "open_text_id": "Открыть",
+  "save_text_id": "Сохранить",
+  "save_as_text_id": "Сохранить как...",
+  "close_tab_text_id": "Закрыть вкладку",
+  "rename_tab_text_id": "Переименовать вкладку",
+  "open_from_cloud_text_id": "Открыть из облака",
+  "save_in_text_id": "Сохранить в облаке",
+  "exit_text_id": "Выход"
 }
