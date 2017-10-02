@@ -23,7 +23,11 @@ namespace Painter.Views
             pElements.Width = 100;
 			Controls.Add(pElements);
 
-			PMainMenu pMainMenu = new PMainMenu(xCommand);
+            PToolBar pToolBar = new PToolBar(xCommand);
+            pToolBar.Dock = DockStyle.Top;
+            Controls.Add(pToolBar);
+
+            PMainMenu pMainMenu = new PMainMenu(xCommand);
 			pMainMenu.Dock = DockStyle.Top;
 			pMainMenu.Height = 50;
 			pMainMenu.BackColor = Color.Green;
@@ -33,7 +37,7 @@ namespace Painter.Views
             pStatusBar.Dock = DockStyle.Bottom;
             Controls.Add(pStatusBar);
 
-
+            
 
         }
 	}
