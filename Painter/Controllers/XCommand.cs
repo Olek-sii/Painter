@@ -7,6 +7,15 @@ namespace Painter.Controllers
 	public class XCommand
 	{
 		private PDraw _activePDraw = null;
+		private IPluginFigure _activePlugin = null;
+		private PluginManager _pluginManager = null;
+
+		public XCommand()
+		{
+			_pluginManager = new PluginManager();
+		}
+
+
 		public PDraw ActivePDraw
 		{
 			set
@@ -14,15 +23,16 @@ namespace Painter.Controllers
 				_activePDraw = value;
 				_activePlugin.ActiveFigure = _activePDraw.ActiveFigure;
 			}
+
+			//qwerty
 		}
 
-		private IPluginFigure _activePlugin;
-		public IPluginFigure ActivePlugin { set => _activePlugin = value; }
-
-        private PluginManager _pluginManager = new PluginManager();
+		public IPluginFigure ActivePlugin { set => _activePlugin = value; }        
         public List<IPluginFigure> FigurePlugins { get => _pluginManager.figurePlugins; }
 
-        int dCalls = 0;
+		
+
+		int dCalls = 0;
 		public void Debug()
 		{
 			System.Diagnostics.Debug.WriteLine("debug" + dCalls++);
@@ -38,5 +48,7 @@ namespace Painter.Controllers
 				return figure;
 			return _activePlugin.Process(figure);
 		}
+
+		
 	}
 }
