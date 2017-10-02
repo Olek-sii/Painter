@@ -10,10 +10,15 @@ namespace Painter.Controllers
 {
 	public class PluginManager
 	{
-		public static List<IPluginFigure> figurePlugins = new List<IPluginFigure>();
-		public static List<IPluginFile> formatPlugins = new List<IPluginFile>();
+		public List<IPluginFigure> figurePlugins = new List<IPluginFigure>();
+		public List<IPluginFile> formatPlugins = new List<IPluginFile>();
 
-		public static void LoadPlugins()
+        public PluginManager()
+        {
+            LoadPlugins();
+        }
+
+		public void LoadPlugins()
 		{
 			figurePlugins.Clear();
 			formatPlugins.Clear();

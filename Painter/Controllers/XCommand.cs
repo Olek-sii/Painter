@@ -1,5 +1,6 @@
 ﻿using Painter.Models;
 using Painter.Views;
+using System.Collections.Generic;
 
 namespace Painter.Controllers
 {
@@ -18,7 +19,10 @@ namespace Painter.Controllers
 		private IPluginFigure _activePlugin;
 		public IPluginFigure ActivePlugin { set => _activePlugin = value; }
 
-		int dCalls = 0;
+        private PluginManager _pluginManager = new PluginManager();
+        public List<IPluginFigure> FigurePlugins { get => _pluginManager.figurePlugins; }
+
+        int dCalls = 0;
 		public void Debug()
 		{
 			System.Diagnostics.Debug.WriteLine("debug" + dCalls++);

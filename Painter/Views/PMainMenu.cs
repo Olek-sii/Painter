@@ -40,7 +40,7 @@ namespace Painter.Views
             Items.Add(_preferencesBtn);
             Items.Add(_helpBtn);
 
-            foreach (IPluginFigure item in PluginManager.figurePlugins)
+            foreach (IPluginFigure item in xCommand.FigurePlugins)
 			{
 				Items.Add(item.GetMenuStrip());
 			}
