@@ -23,8 +23,6 @@ namespace Painter.Controllers
 				_activePDraw = value;
 				_activePlugin.ActiveFigure = _activePDraw.ActiveFigure;
 			}
-
-			//qwerty
 		}
 
 		public IPluginFigure ActivePlugin { set => _activePlugin = value; }        
