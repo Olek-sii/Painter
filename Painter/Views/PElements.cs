@@ -25,7 +25,7 @@ namespace Painter.Views
 			};
 			Controls.Add(r);
 
-			foreach (var plugin in PluginManager.figurePlugins)
+			foreach (var plugin in xCommand.FigurePlugins)
 			{
 				RadioButton rb = plugin.GetElements();
 				rb.Location = new Point(10, y);

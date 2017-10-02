@@ -100,7 +100,7 @@ namespace Painter.Views
 
 
 
-            foreach (IPluginFigure item in PluginManager.figurePlugins)
+            foreach (IPluginFigure item in xCommand.FigurePlugins)
 			{
 				Items.Add(item.GetMenuStrip());
 			}

@@ -8,7 +8,6 @@ namespace Painter.Views
 	{
 		public PFrame()
 		{
-			PluginManager.LoadPlugins();
 			XCommand xCommand = new XCommand();
 
 			PDraw pDraw = new PDraw(xCommand);
