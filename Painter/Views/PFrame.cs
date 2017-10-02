@@ -28,8 +28,13 @@ namespace Painter.Views
 			pMainMenu.Height = 50;
 			pMainMenu.BackColor = Color.Green;
 			Controls.Add(pMainMenu);
+            
+            PStatusBar pStatusBar = new PStatusBar(xCommand);
+            pStatusBar.Dock = DockStyle.Bottom;
+            Controls.Add(pStatusBar);
 
-			
-		}
+
+
+        }
 	}
 }
