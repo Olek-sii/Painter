@@ -69,6 +69,10 @@ namespace Painter.Views
             _saveInCloudBtn = new ToolStripMenuItem(Localization.GetText("save_in_text_id"), null);
             _exitBtn = new ToolStripMenuItem(Localization.GetText("exit_text_id"), null);
 
+            // MainMenu: View
+            _elementsBtn = new ToolStripMenuItem(Localization.GetText("elements_text_id"), null);
+            _propertiesFileBtn = new ToolStripMenuItem(Localization.GetText("properties_text_id"), null);
+
             // MainMenu
             Items.Add(_debugBtn);
             Items.Add(_fileBtn);
@@ -89,6 +93,12 @@ namespace Painter.Views
             _fileBtn.DropDownItems.Add(_openFromCloudBtn);
             _fileBtn.DropDownItems.Add(_saveInCloudBtn);
             _fileBtn.DropDownItems.Add(_exitBtn);
+
+            // MainMenu: ViewItems
+            _viewBtn.DropDownItems.Add(_elementsBtn);
+            _viewBtn.DropDownItems.Add(_propertiesFileBtn);
+
+
 
             foreach (IPluginFigure item in PluginManager.figurePlugins)
 			{
@@ -120,6 +130,10 @@ namespace Painter.Views
             _openFromCloudBtn.Text = Localization.GetText("open_from_cloud_text_id");
             _saveInCloudBtn.Text = Localization.GetText("save_in_text_id");
             _exitBtn.Text = Localization.GetText("exit_text_id");
+
+            // MainMenu: View
+            _elementsBtn.Text = Localization.GetText("elements_text_id");
+            _propertiesFileBtn.Text = Localization.GetText("properties_text_id");
         }
     }
 }

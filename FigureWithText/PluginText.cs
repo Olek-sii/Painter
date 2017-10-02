@@ -10,7 +10,7 @@ namespace FigureWithText
 		XCommand xCommand = new XCommand();
 
 		public PFigure ActiveFigure { set => xCommand.ActiveFigure = value; }
-		public string Name { get => "PluginText"; }
+		public string Name { get => "Figure with text"; }
 
 		public RadioButton GetElements()
 		{

@@ -20,6 +20,7 @@ namespace Painter.Views
 			PElements pElements = new PElements(xCommand);
 			pElements.Dock = DockStyle.Left;
 			pElements.BackColor = Color.Aqua;
+            pElements.Width = 100;
 			Controls.Add(pElements);
 
 			PMainMenu pMainMenu = new PMainMenu(xCommand);

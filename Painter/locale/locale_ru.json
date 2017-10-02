@@ -16,5 +16,7 @@
   "rename_tab_text_id": "Переименовать вкладку",
   "open_from_cloud_text_id": "Открыть из облака",
   "save_in_text_id": "Сохранить в облаке",
-  "exit_text_id": "Выход"
+  "exit_text_id": "Выход",
+
+  "elements_text_id": "Элементы"
 }

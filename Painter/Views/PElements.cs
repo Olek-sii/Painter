@@ -14,8 +14,8 @@ namespace Painter.Views
 
 			int y = 50;
 			RadioButton r = new RadioButton();
-			r.Text = "Simple";
-			r.Location = new Point(50, y);
+			r.Text = "Empty Figure";
+			r.Location = new Point(10, y);
 			r.Checked = true;
 			y += 20;
 			r.CheckedChanged += delegate
@@ -28,7 +28,7 @@ namespace Painter.Views
 			foreach (var plugin in PluginManager.figurePlugins)
 			{
 				RadioButton rb = plugin.GetElements();
-				rb.Location = new Point(50, y);
+				rb.Location = new Point(10, y);
 				rb.CheckedChanged += delegate
 				{
 					if (rb.Checked)

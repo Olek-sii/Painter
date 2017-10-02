@@ -16,5 +16,7 @@
   "rename_tab_text_id": "Rename tab",
   "open_from_cloud_text_id": "Open from cloud",
   "save_in_text_id": "Save in cloud",
-  "exit_text_id": "Exit"
+  "exit_text_id": "Exit",
+
+  "elements_text_id": "Elements"
 }
