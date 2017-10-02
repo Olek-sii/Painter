@@ -1,3 +1,10 @@
 ﻿{
-	"debug_text_id": "Дебаг"
+  "debug_text_id": "Дебаг",
+  "file_text_id": "Файл",
+  "view_text_id": "Вид",
+  "plugins_text_id": "Плагины",
+  "tabs_text_id": "Вкладки",
+  "properties_text_id": "Свойства",
+  "preferences_text_id": "Настройки",
+  "help_text_id": "Помощь"
 }

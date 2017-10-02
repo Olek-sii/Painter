@@ -1,3 +1,10 @@
 ﻿{
-	"debug_text_id" :  "Debug"
+  "debug_text_id": "Debug",
+  "file_text_id": "File",
+  "view_text_id": "View",
+  "plugins_text_id": "Plug-ins",
+  "tabs_text_id": "Tabs",
+  "properties_text_id": "Properties",
+  "preferences_text_id": "Preferences",
+  "help_text_id": "Help"
 }
