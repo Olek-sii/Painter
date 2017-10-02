@@ -90,6 +90,9 @@
     <Compile Include="Views\PMainMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Views\PStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Views\PToolBar.cs">
       <SubType>Component</SubType>
     </Compile>

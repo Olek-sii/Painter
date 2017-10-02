@@ -8,12 +8,14 @@ using System.Windows.Forms;
 
 namespace Painter.Views
 {
-    public class PToolBox : Panel
+    class PStatusBar : StatusStrip
     {
         private XCommand _xCommand;
-        public PToolBox(XCommand xCommand)
+        public PStatusBar(XCommand xCommand)
         {
             _xCommand = xCommand;
+            ToolStripStatusLabel statusLbl = new ToolStripStatusLabel("X:  Y: ");
+            Items.Add(statusLbl);
         }
     }
 }
