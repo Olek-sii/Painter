@@ -59,15 +59,15 @@ namespace Painter.Views
             _helpBtn = new ToolStripMenuItem(Localization.GetText("help_text_id"));
 
             // MainMenu: File
-            _newBtn = new ToolStripMenuItem(Localization.GetText("new_text_id"), null);
-            _openBtn = new ToolStripMenuItem(Localization.GetText("open_text_id"), null);
-            _saveBtn = new ToolStripMenuItem(Localization.GetText("save_text_id"), null);
-            _saveAsBtn = new ToolStripMenuItem(Localization.GetText("save_as_text_id"), null);
-            _closeTabBtn = new ToolStripMenuItem(Localization.GetText("close_tab_text_id"), null);
-            _renameTabBtn = new ToolStripMenuItem(Localization.GetText("rename_tab_text_id"), null);
-            _openFromCloudBtn = new ToolStripMenuItem(Localization.GetText("open_from_cloud_text_id"), null);
-            _saveInCloudBtn = new ToolStripMenuItem(Localization.GetText("save_in_text_id"), null);
-            _exitBtn = new ToolStripMenuItem(Localization.GetText("exit_text_id"), null);
+            _newBtn = new ToolStripMenuItem(Localization.GetText("new_text_id"), null, delegate { _xCommand.New(); });
+            _openBtn = new ToolStripMenuItem(Localization.GetText("open_text_id"), null, delegate { _xCommand.FileOpen(); });
+            _saveBtn = new ToolStripMenuItem(Localization.GetText("save_text_id"), null, delegate { _xCommand.FileSave(); });
+            _saveAsBtn = new ToolStripMenuItem(Localization.GetText("save_as_text_id"), null, delegate { _xCommand.FileSaveAs(); });
+            _closeTabBtn = new ToolStripMenuItem(Localization.GetText("close_tab_text_id"), null, delegate { _xCommand.CloseTab(); });
+            _renameTabBtn = new ToolStripMenuItem(Localization.GetText("rename_tab_text_id"), null, delegate { _xCommand.RenameTab(); });
+            _openFromCloudBtn = new ToolStripMenuItem(Localization.GetText("open_from_cloud_text_id"), null, delegate { _xCommand.OpenFromCloud(); });
+            _saveInCloudBtn = new ToolStripMenuItem(Localization.GetText("save_in_text_id"), null, delegate { _xCommand.SaveInCloud(); });
+            _exitBtn = new ToolStripMenuItem(Localization.GetText("exit_text_id"), null, delegate { _xCommand.Exit(); });
 
             // MainMenu: View
             _elementsBtn = new ToolStripMenuItem(Localization.GetText("elements_text_id"), null);

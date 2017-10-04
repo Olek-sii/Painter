@@ -1,6 +1,7 @@
 ﻿using Painter.Models;
 using Painter.Views;
 using System.Collections.Generic;
+using System;
 
 namespace Painter.Controllers
 {
@@ -47,6 +48,49 @@ namespace Painter.Controllers
 			return _activePlugin.Process(figure);
 		}
 
-		
-	}
+        internal void New()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void FileOpen()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void FileSave()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void FileSaveAs()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void CloseTab()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void RenameTab()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OpenFromCloud()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void SaveInCloud()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Exit()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
