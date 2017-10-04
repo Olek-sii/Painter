@@ -7,9 +7,9 @@ namespace FigureWithText
 {
 	class PluginText : IPluginFigure
 	{
-		XCommand xCommand = new XCommand();
+		XCommand _xCommand = new XCommand();
 
-		public PFigure ActiveFigure { set => xCommand.ActiveFigure = value; }
+		public PFigure ActiveFigure { set => _xCommand.ActiveFigure = value; }
 		public string Name { get => "Figure with text"; }
 
 		public RadioButton GetElements()
@@ -23,14 +23,14 @@ namespace FigureWithText
 		public ToolStripMenuItem GetMenuStrip()
 		{
 			ToolStripMenuItem menu = new ToolStripMenuItem("Text plugin");
-			menu.DropDownItems.Add(new ToolStripButton("qwerty", null, delegate
+			menu.DropDownItems.Add(new ToolStripMenuItem("qwerty", null, delegate
 			{
-				xCommand.SetText("qwerty");
+				_xCommand.SetText("qwerty");
 			}));
 
-			menu.DropDownItems.Add(new ToolStripButton("QWERTY", null, delegate
+			menu.DropDownItems.Add(new ToolStripMenuItem("QWERTY", null, delegate
 			{
-				xCommand.SetText("QWERTY");
+				_xCommand.SetText("QWERTY");
 			}));
 
 			return menu;
@@ -48,7 +48,7 @@ namespace FigureWithText
 
 		public PFigure Process(PFigure figure)
 		{
-			return new FigureWithText(figure, xCommand.xText);
+			return new FigureWithText(figure, _xCommand.xText);
 		}
 	}
 }

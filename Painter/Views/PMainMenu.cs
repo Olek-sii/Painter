@@ -73,39 +73,20 @@ namespace Painter.Views
             _elementsBtn = new ToolStripMenuItem(Localization.GetText("elements_text_id"), null);
             _propertiesFileBtn = new ToolStripMenuItem(Localization.GetText("properties_text_id"), null);
 
-            // MainMenu
-            Items.Add(_debugBtn);
-            Items.Add(_fileBtn);
-            Items.Add(_viewBtn);
-            Items.Add(_pluginsBtn);
-            Items.Add(_tabsBtn);
-            Items.Add(_propertiesBtn);
-            Items.Add(_preferencesBtn);
-            Items.Add(_helpBtn);
 
-            // MainMenu: FileItems
-            _fileBtn.DropDownItems.Add(_newBtn);
-            _fileBtn.DropDownItems.Add(_openBtn);
-            _fileBtn.DropDownItems.Add(_saveBtn);
-            _fileBtn.DropDownItems.Add(_saveAsBtn);
-            _fileBtn.DropDownItems.Add(_closeTabBtn);
-            _fileBtn.DropDownItems.Add(_renameTabBtn);
-            _fileBtn.DropDownItems.Add(_openFromCloudBtn);
-            _fileBtn.DropDownItems.Add(_saveInCloudBtn);
-            _fileBtn.DropDownItems.Add(_exitBtn);
-
-            // MainMenu: ViewItems
-            _viewBtn.DropDownItems.Add(_elementsBtn);
-            _viewBtn.DropDownItems.Add(_propertiesFileBtn);
-
-
-
-            foreach (IPluginFigure item in xCommand.FigurePlugins)
-			{
-				Items.Add(item.GetMenuStrip());
-			}
+			FillMenu();
 
 			Localization.OnLocalChange += Localization_OnLocalChange;
+			_xCommand.OnFigurePluginChanged += _xCommand_OnFigurePluginChanged;
+		}
+
+		private void _xCommand_OnFigurePluginChanged()
+		{
+			_pluginsBtn.DropDownItems.Clear();
+			if (_xCommand.ActivePlugin != null)
+				_pluginsBtn.DropDownItems.Add(_xCommand.ActivePlugin.GetMenuStrip());
+
+			FillMenu();
 		}
 
 		private void Localization_OnLocalChange()
@@ -135,5 +116,35 @@ namespace Painter.Views
             _elementsBtn.Text = Localization.GetText("elements_text_id");
             _propertiesFileBtn.Text = Localization.GetText("properties_text_id");
         }
+
+		private void FillMenu()
+		{
+			Items.Clear();
+
+			// MainMenu
+			Items.Add(_debugBtn);
+			Items.Add(_fileBtn);
+			Items.Add(_viewBtn);
+			Items.Add(_pluginsBtn);
+			Items.Add(_tabsBtn);
+			Items.Add(_propertiesBtn);
+			Items.Add(_preferencesBtn);
+			Items.Add(_helpBtn);
+
+			// MainMenu: FileItems
+			_fileBtn.DropDownItems.Add(_newBtn);
+			_fileBtn.DropDownItems.Add(_openBtn);
+			_fileBtn.DropDownItems.Add(_saveBtn);
+			_fileBtn.DropDownItems.Add(_saveAsBtn);
+			_fileBtn.DropDownItems.Add(_closeTabBtn);
+			_fileBtn.DropDownItems.Add(_renameTabBtn);
+			_fileBtn.DropDownItems.Add(_openFromCloudBtn);
+			_fileBtn.DropDownItems.Add(_saveInCloudBtn);
+			_fileBtn.DropDownItems.Add(_exitBtn);
+
+			// MainMenu: ViewItems
+			_viewBtn.DropDownItems.Add(_elementsBtn);
+			_viewBtn.DropDownItems.Add(_propertiesFileBtn);
+		}
     }
 }

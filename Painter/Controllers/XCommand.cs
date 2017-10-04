@@ -15,7 +15,6 @@ namespace Painter.Controllers
 			_pluginManager = new PluginManager();
 		}
 
-
 		public PDraw ActivePDraw
 		{
 			set
@@ -25,10 +24,12 @@ namespace Painter.Controllers
 			}
 		}
 
-		public IPluginFigure ActivePlugin { set => _activePlugin = value; }        
+		public IPluginFigure ActivePlugin { get => _activePlugin; set { _activePlugin = value; OnFigurePluginChanged(); } }     
         public List<IPluginFigure> FigurePlugins { get => _pluginManager.figurePlugins; }
 
-		
+		public delegate void FigurePluginChangedHandler();
+		public event FigurePluginChangedHandler OnFigurePluginChanged;
+
 
 		int dCalls = 0;
 		public void Debug()
