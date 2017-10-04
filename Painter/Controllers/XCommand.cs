@@ -92,5 +92,120 @@ namespace Painter.Controllers
         {
             throw new NotImplementedException();
         }
+
+        internal void ShowElements()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ShowProperties()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ShowAbout()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddJSON()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddYAML()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddXML()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddBIN()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void EmptyFigure()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void RussianLanguage()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void EnglishLanguage()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void LightSkin()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void DarkSkin()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void FigureColor()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void LineType()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void RectangleType()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void EllipseType()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void RoundedRectangleType()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ChangeLineWidth1()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ChangeLineWidth3()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ChangeLineWidth5()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ChangeLineWidth10()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ChangeLineWidth15()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void ChangeLineWidth20()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

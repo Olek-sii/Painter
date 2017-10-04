@@ -12,13 +12,13 @@ namespace Painter.Views
 
 			PDraw pDraw = new PDraw(xCommand);
 			pDraw.Dock = DockStyle.Fill;
-			pDraw.BackColor = Color.Wheat;
+			//pDraw.BackColor = Color.Wheat;
 			pDraw.BorderStyle = BorderStyle.FixedSingle;
 			Controls.Add(pDraw);
 
 			PElements pElements = new PElements(xCommand);
 			pElements.Dock = DockStyle.Left;
-			pElements.BackColor = Color.Aqua;
+			//pElements.BackColor = Color.Aqua;
             pElements.Width = 100;
 			Controls.Add(pElements);
 
@@ -29,7 +29,7 @@ namespace Painter.Views
             PMainMenu pMainMenu = new PMainMenu(xCommand);
 			pMainMenu.Dock = DockStyle.Top;
 			pMainMenu.Height = 50;
-			pMainMenu.BackColor = Color.Green;
+			//pMainMenu.BackColor = Color.Green;
 			Controls.Add(pMainMenu);
             
             PStatusBar pStatusBar = new PStatusBar(xCommand);
