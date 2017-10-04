@@ -18,5 +18,42 @@
   "save_in_text_id": "Save in cloud",
   "exit_text_id": "Exit",
 
-  "elements_text_id": "Elements"
+  "elements_text_id": "Elements",
+
+  "formats_text_id": "Formats",
+  "language_text_id": "Language",
+  "skin_text_id": "Skin",
+  "about_text_id": "About",
+  "close_all_text_id": "Close All",
+  "figure_text_id": "Figure",
+
+  "json_text_id": "JSON",
+  "yaml_text_id": "YAML",
+  "xml_text_id": "XML",
+  "bin_text_id": "BIN",
+
+  "empty_figure_text_id": "Empty figure",
+
+  "russian_text_id": "Russian",
+  "english_text_id": "English",
+
+  "light_text_id": "Light",
+  "dark_text_id": "Dark",
+
+  "types_text_id": "Types",
+  "line_width_text_id": "Line width",
+  "color_text_id": "Color",
+
+  "line_text_id": "Line",
+  "rectangle_text_id": "Rectangle",
+  "ellipse_text_id": "Ellipse",
+  "rounded_rectangle_text_id": "Round rectangle",
+
+  "width1_text_id": "1",
+  "width3_text_id": "3",
+  "width5_text_id": "5",
+  "width10_text_id": "10",
+  "width15_text_id": "15",
+  "width20_text_id": "20"
+
 }

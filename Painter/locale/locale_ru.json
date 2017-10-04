@@ -18,5 +18,41 @@
   "save_in_text_id": "Сохранить в облаке",
   "exit_text_id": "Выход",
 
-  "elements_text_id": "Элементы"
+  "elements_text_id": "Элементы",
+
+  "formats_text_id": "Форматы",
+  "language_text_id": "Язык",
+  "skin_text_id": "Темы",
+  "about_text_id": "О программе",
+  "close_all_text_id": "Закрыть все",
+  "figure_text_id": "Фигура",
+
+  "json_text_id": "JSON",
+  "yaml_text_id": "YAML",
+  "xml_text_id": "XML",
+  "bin_text_id": "BIN",
+
+  "empty_figure_text_id": "Пустая фигура",
+
+  "russian_text_id": "Русский",
+  "english_text_id": "Английский",
+
+  "light_text_id": "Светлая",
+  "dark_text_id": "Темная",
+
+  "types_text_id": "Тип фигуры",
+  "line_width_text_id": "Ширина линии",
+  "color_text_id": "Цвет",
+
+  "line_text_id": "Линия",
+  "rectangle_text_id": "Прямоугольник",
+  "ellipse_text_id": "Круг",
+  "rounded_rectangle_text_id": "Закругленный прямоугльник",
+
+  "width1_text_id": "1",
+  "width3_text_id": "3",
+  "width5_text_id": "5",
+  "width10_text_id": "10",
+  "width15_text_id": "15",
+  "width20_text_id": "20"
 }
