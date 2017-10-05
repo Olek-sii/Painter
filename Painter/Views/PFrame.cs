@@ -8,7 +8,7 @@ namespace Painter.Views
 	{
 		public PFrame()
 		{
-			XCommand xCommand = new XCommand();
+			IXCommand xCommand = new FakeXCommand();
 
 			PDraw pDraw = new PDraw(xCommand);
 			pDraw.Dock = DockStyle.Fill;

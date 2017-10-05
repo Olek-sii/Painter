@@ -10,8 +10,8 @@ namespace Painter.Views
 {
     public class PToolBox : Panel
     {
-        private XCommand _xCommand;
-        public PToolBox(XCommand xCommand)
+        private IXCommand _xCommand;
+        public PToolBox(IXCommand xCommand)
         {
             _xCommand = xCommand;
         }

@@ -20,9 +20,9 @@ namespace Painter.Controllers
 		{
 			string locFile = "";
 			if (currLocale == "en")
-				locFile = "../Painter/locale/locale_en.json";
+				locFile = "locale/locale_en.json";
 			else
-				locFile = "../Painter/locale/locale_ru.json";
+				locFile = "locale/locale_ru.json";
 
 			string res = "qwerty";
 			using (StreamReader streamReader = new StreamReader(locFile))

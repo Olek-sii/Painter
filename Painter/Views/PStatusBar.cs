@@ -10,8 +10,8 @@ namespace Painter.Views
 {
     class PStatusBar : StatusStrip
     {
-        private XCommand _xCommand;
-        public PStatusBar(XCommand xCommand)
+        private IXCommand _xCommand;
+        public PStatusBar(IXCommand xCommand)
         {
             _xCommand = xCommand;
             ToolStripStatusLabel statusLbl = new ToolStripStatusLabel("X:  Y: ");

@@ -10,7 +10,7 @@ namespace Painter.Views
 {
     public class PToolBar : ToolStrip
     {
-        private XCommand _xCommand;
+        private IXCommand _xCommand;
 
         ToolStripButton newBtn;
         ToolStripButton openBtn;
@@ -23,7 +23,7 @@ namespace Painter.Views
 
         ToolStripButton colorBtn;
 
-        public PToolBar(XCommand xCommand)
+        public PToolBar(IXCommand xCommand)
         {
             _xCommand = xCommand;
 

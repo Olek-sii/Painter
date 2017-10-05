@@ -7,7 +7,7 @@ namespace Painter.Views
 {
 	public class PDraw : UserControl
 	{
-		private XCommand _xCommand = null;
+		private IXCommand _xCommand = null;
 		private PFigure _activeFigure;
 
 		public XData _xData = new XData();
@@ -21,7 +21,7 @@ namespace Painter.Views
 			}
 		}
 
-		public PDraw(XCommand xCommand)
+		public PDraw(IXCommand xCommand)
 		{
 			_xCommand = xCommand;
 			Click += PDraw_Click;

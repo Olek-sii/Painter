@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FakeXCommand.cs" />
+    <Compile Include="Controllers\IXCommand.cs" />
     <Compile Include="Controllers\Localization.cs" />
     <Compile Include="Controllers\PluginManager.cs" />
     <Compile Include="Controllers\XCommand.cs" />
@@ -114,8 +116,12 @@
     <EmbeddedResource Include="Views\PDraw.resx">
       <DependentUpon>PDraw.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="locale\locale_en.json" />
-    <None Include="locale\locale_ru.json" />
+    <Content Include="locale\locale_en.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="locale\locale_ru.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

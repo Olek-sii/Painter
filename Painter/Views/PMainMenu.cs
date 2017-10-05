@@ -6,7 +6,7 @@ namespace Painter.Views
 {
     public class PMainMenu : MenuStrip
     {
-		private XCommand _xCommand = null;
+		private IXCommand _xCommand = null;
 
         // MainMenu
         private ToolStripMenuItem _debugBtn;
@@ -88,7 +88,7 @@ namespace Painter.Views
         // MainMenu: Help
         private ToolStripMenuItem _aboutBtn;
 
-        public PMainMenu(XCommand xCommand)
+        public PMainMenu(IXCommand xCommand)
 		{
 			_xCommand = xCommand;
             
@@ -124,10 +124,10 @@ namespace Painter.Views
 
 
             // MainMenu: Plug-ins : Formats
-            _json = new ToolStripMenuItem(Localization.GetText("json_text_id"), null, delegate { _xCommand.AddJSON(); });
-            _yaml = new ToolStripMenuItem(Localization.GetText("yaml_text_id"), null, delegate { _xCommand.AddYAML(); });
-            _xml = new ToolStripMenuItem(Localization.GetText("xml_text_id"), null, delegate { _xCommand.AddXML(); });
-            _bin = new ToolStripMenuItem(Localization.GetText("bin_text_id"), null, delegate { _xCommand.AddBIN(); });
+            //_json = new ToolStripMenuItem(Localization.GetText("json_text_id"), null, delegate { _xCommand.AddJSON(); });
+            //_yaml = new ToolStripMenuItem(Localization.GetText("yaml_text_id"), null, delegate { _xCommand.AddYAML(); });
+            //_xml = new ToolStripMenuItem(Localization.GetText("xml_text_id"), null, delegate { _xCommand.AddXML(); });
+            //_bin = new ToolStripMenuItem(Localization.GetText("bin_text_id"), null, delegate { _xCommand.AddBIN(); });
 
             // MainMenu: Plug-ins : Elements
             _emptyFigure = new ToolStripMenuItem(Localization.GetText("empty_figure_text_id"), null, delegate { _xCommand.EmptyFigure(); });
@@ -229,10 +229,10 @@ namespace Painter.Views
 
 
 			// MainMenu: Plug-ins : FormatsItems
-			_formatsBtn.DropDownItems.Add(_json);
-			_formatsBtn.DropDownItems.Add(_yaml);
-			_formatsBtn.DropDownItems.Add(_xml);
-			_formatsBtn.DropDownItems.Add(_bin);
+			//_formatsBtn.DropDownItems.Add(_json);
+			//_formatsBtn.DropDownItems.Add(_yaml);
+			//_formatsBtn.DropDownItems.Add(_xml);
+			//_formatsBtn.DropDownItems.Add(_bin);
 
 			// MainMenu: Plug-ins : ElementsItems
 			_elementsPluginsBtn.DropDownItems.Add(_emptyFigure);

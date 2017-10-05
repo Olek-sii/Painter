@@ -28,7 +28,7 @@ namespace Painter.Views
 		public int LineWidth { set { _lineWidth = value; Invalidate(); } }
 		public XData.FigureType Type { set { _type = value; Invalidate(); } }
 
-		public PFigure(int x, int y, int w, int h, XData xData, XCommand xCommand)
+		public PFigure(int x, int y, int w, int h, XData xData, IXCommand xCommand)
 		{
 			//ContextMenuStrip = new CtxMenu(xCommand);
 

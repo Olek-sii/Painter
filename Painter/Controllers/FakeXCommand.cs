@@ -1,17 +1,18 @@
-﻿using Painter.Models;
-using Painter.Views;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using Painter.Models;
+using Painter.Views;
+using System.Windows.Forms;
 
 namespace Painter.Controllers
 {
-	public class XCommand : IXCommand
+	class FakeXCommand : IXCommand
 	{
 		private PDraw _activePDraw = null;
 		private IPluginFigure _activePlugin = null;
 		private PluginManager _pluginManager = null;
 
-		public XCommand()
+		public FakeXCommand()
 		{
 			_pluginManager = new PluginManager();
 		}
@@ -30,135 +31,22 @@ namespace Painter.Controllers
 
 		public event Action OnFigurePluginChanged;
 
-
-		int dCalls = 0;
-		public void Debug()
-		{
-			System.Diagnostics.Debug.WriteLine("debug" + dCalls++);
-			if (dCalls % 2 == 1)
-				Localization.Locale = "ru";
-			else
-				Localization.Locale = "en";
-		}
-
-		public PFigure PluginProcess(PFigure figure)
-		{
-			if (_activePlugin == null)
-				return figure;
-			return _activePlugin.Process(figure);
-		}
-
-		public void New()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void FileOpen()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void FileSave()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void FileSaveAs()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void CloseTab()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void RenameTab()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void OpenFromCloud()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void SaveInCloud()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Exit()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ShowElements()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ShowProperties()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ShowAbout()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void EmptyFigure()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void RussianLanguage()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void EnglishLanguage()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void LightSkin()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void DarkSkin()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void FigureColor()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void LineType()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void RectangleType()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void EllipseType()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void RoundedRectangleType()
-		{
-			throw new NotImplementedException();
-		}
-
 		public void ChangeLineWidth1()
+		{
+			MessageBox.Show("ChangeLineWidth1");
+		}
+
+		public void ChangeLineWidth10()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ChangeLineWidth15()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ChangeLineWidth20()
 		{
 			throw new NotImplementedException();
 		}
@@ -173,17 +61,122 @@ namespace Painter.Controllers
 			throw new NotImplementedException();
 		}
 
-		public void ChangeLineWidth10()
+		public void CloseTab()
 		{
 			throw new NotImplementedException();
 		}
 
-		public void ChangeLineWidth15()
+		public void DarkSkin()
 		{
 			throw new NotImplementedException();
 		}
 
-		public void ChangeLineWidth20()
+		public void Debug()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EllipseType()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EmptyFigure()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EnglishLanguage()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Exit()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void FigureColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void FileOpen()
+		{
+			MessageBox.Show("File open");
+		}
+
+		public void FileSave()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void FileSaveAs()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void LightSkin()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void LineType()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void New()
+		{
+			MessageBox.Show("New");
+		}
+
+		public void OpenFromCloud()
+		{
+			throw new NotImplementedException();
+		}
+
+		public PFigure PluginProcess(PFigure figure)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RectangleType()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RenameTab()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RoundedRectangleType()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RussianLanguage()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SaveInCloud()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ShowAbout()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ShowElements()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ShowProperties()
 		{
 			throw new NotImplementedException();
 		}

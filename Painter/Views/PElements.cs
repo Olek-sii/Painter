@@ -6,9 +6,9 @@ namespace Painter.Views
 {
 	public class PElements : Panel
 	{
-		private XCommand _xCommand;
+		private IXCommand _xCommand;
 
-		public PElements(XCommand xCommand)
+		public PElements(IXCommand xCommand)
 		{
 			_xCommand = xCommand;
 

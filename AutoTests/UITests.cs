@@ -1,33 +1,38 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestStack.White;
-using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowItems;
 
 namespace AutoTests
 {
-    [TestClass]
+	[TestClass]
     public class UITests
     {
-        public static Application application;
+        private Application _application;
+		private Window _mainWindow;
 
-        [TestCleanup]
+		[TestCleanup]
         public void TestTearDown()
         {
-            application.Close();
+			_mainWindow.Close();
+            _application.Close();
         }
 
         [TestInitialize]
         public void SetUp()
         {
-            application = Application.Launch(@"E:\CSharpDev\MyPreviousVersions\2017.09.22\Painter\...");
-            Assert.IsNotNull(application);
-        }
+			_application = Application.Launch(@"E:\projects\c#\Painter\plugins\Painter.exe");
+			_mainWindow = _application.GetWindows()[0];
+		}
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestMenu()
         {
-        }
+			_mainWindow.Get(SearchCriteria.ByText("File")).Click();
+			_mainWindow.Get(SearchCriteria.ByText("Open")).Click();
+			var a = _mainWindow.ModalWindows()[0].Get(SearchCriteria.ByText("File open"));
+			Assert.IsNotNull(a);
+			_mainWindow.ModalWindows()[0].Close();
+		}
     }
 }
