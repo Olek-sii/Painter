@@ -11,9 +11,77 @@ namespace Painter.Views
     public class PToolBox : Panel
     {
         private IXCommand _xCommand;
-        public PToolBox(IXCommand xCommand)
+
+		private GroupBox _emptyFigureGroupBox;
+		private RadioButton _line;
+		private RadioButton _rect;
+		private RadioButton _ellipse;
+		private RadioButton _roundRect;
+		private Button _color;
+		private Label _lineWidthLabel;
+		private ComboBox _lineWidth;
+
+		public PToolBox(IXCommand xCommand)
         {
             _xCommand = xCommand;
-        }
-    }
+
+			// figure
+			_emptyFigureGroupBox = new GroupBox();
+			_emptyFigureGroupBox.Parent = this;
+			_emptyFigureGroupBox.Text = Localization.GetText("figure_text_id");
+			_emptyFigureGroupBox.Location = new System.Drawing.Point(0, 0);
+			_emptyFigureGroupBox.Size = new System.Drawing.Size(Width - 10, 150);
+
+			_line = new RadioButton();
+			_line.Parent = _emptyFigureGroupBox;
+			_line.Text = Localization.GetText("line_text_id");
+			_line.Location = new System.Drawing.Point(10, 20);
+			_line.CheckedChanged += delegate { if(_line.Checked) _xCommand.SetType(Models.XData.FigureType.Line); };
+
+			_rect = new RadioButton();
+			_rect.Parent = _emptyFigureGroupBox;
+			_rect.Text = Localization.GetText("rectangle_text_id");
+			_rect.Location = new System.Drawing.Point(10, 40);
+			_rect.CheckedChanged += delegate { if (_rect.Checked) _xCommand.SetType(Models.XData.FigureType.Rectangle); };
+
+			_ellipse = new RadioButton();
+			_ellipse.Parent = _emptyFigureGroupBox;
+			_ellipse.Text = Localization.GetText("ellipse_text_id");
+			_ellipse.Location = new System.Drawing.Point(10, 60);
+			_ellipse.CheckedChanged += delegate { if (_ellipse.Checked) _xCommand.SetType(Models.XData.FigureType.Ellipse); };
+
+			_roundRect = new RadioButton();
+			_roundRect.Parent = _emptyFigureGroupBox;
+			_roundRect.Text = Localization.GetText("rectangle_text_id");
+			_roundRect.Location = new System.Drawing.Point(10, 80);
+			_roundRect.CheckedChanged += delegate { if (_roundRect.Checked) _xCommand.SetType(Models.XData.FigureType.RoundRectangle); };
+
+			_color = new Button();
+			_color.Parent = _emptyFigureGroupBox;
+			_color.Text = Localization.GetText("color_text_id");
+			_color.Location = new System.Drawing.Point(60, 20);
+			_color.Click += delegate { try { _xCommand.SetColor(Utilities.GetColor()); } catch { } };
+
+
+			Localization.OnLocalChange += Localization_OnLocalChange;
+			_xCommand.OnFigurePluginChanged += _xCommand_OnFigurePluginChanged;
+		}
+
+		private void FillToolBox()
+		{
+			_emptyFigureGroupBox.Controls.Add(_line);
+
+			Controls.Add(_emptyFigureGroupBox);
+		}
+
+		private void _xCommand_OnFigurePluginChanged()
+		{
+			//throw new NotImplementedException();
+		}
+
+		private void Localization_OnLocalChange()
+		{
+			//throw new NotImplementedException();
+		}
+	}
 }

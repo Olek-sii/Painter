@@ -4,7 +4,7 @@ namespace Painter.Models
 {
 	public class XData
 	{
-		public enum FigureType { Free, Rectangle, Round, RoundRectangle, Line };
+		public enum FigureType { Rectangle, Ellipse, RoundRectangle, Line };
 
 		public Color color = Color.Black;
 		public int lineWidth = 1;

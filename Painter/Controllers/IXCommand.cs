@@ -2,21 +2,23 @@
 using Painter.Views;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Painter.Controllers
 {
 	public interface IXCommand
 	{
 		PDraw ActivePDraw { set; }
-
-		IPluginFigure ActivePlugin { get; set; }
+		IPluginFigure ActiveFigurePlugin { get; set; }
 		List<IPluginFigure> FigurePlugins { get; }
+		List<IPluginFile> FilePlugins { get; }
+		TabControl TabControl { get;  set; }
 
-		
 		event Action OnFigurePluginChanged;
 
+		void InitializePluginManager();
 		PFigure PluginProcess(PFigure figure);
-
 		void New();
 		void FileOpen();
 		void FileSave();
@@ -26,25 +28,17 @@ namespace Painter.Controllers
 		void OpenFromCloud();
 		void SaveInCloud();
 		void Exit();
-		void ShowElements();
-		void ShowProperties();
 		void ShowAbout();
 		void EmptyFigure();
 		void RussianLanguage();
 		void EnglishLanguage();
 		void LightSkin();
 		void DarkSkin();
-		void FigureColor();
-		void LineType();
-		void RectangleType();
-		void EllipseType();
-		void RoundedRectangleType();
-		void ChangeLineWidth1();
-		void ChangeLineWidth3();
-		void ChangeLineWidth5();
-		void ChangeLineWidth10();
-		void ChangeLineWidth15();
-		void ChangeLineWidth20();
+		void ToggleVisible(Control control);
+		void SetType(XData.FigureType type);
+		void SetColor(Color color);
+		void SetLineWidth(int width);
 		void Debug();
+		void TogglePlugin(IPluginFigure plugin);
 	}
 }

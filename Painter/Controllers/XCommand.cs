@@ -1,32 +1,36 @@
 ﻿using Painter.Models;
 using Painter.Views;
 using System.Collections.Generic;
+using System.Linq;
 using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.IO;
 
 namespace Painter.Controllers
 {
 	public class XCommand : IXCommand
-	{
+	{	
 		private PDraw _activePDraw = null;
 		private IPluginFigure _activePlugin = null;
 		private PluginManager _pluginManager = null;
-
-		public XCommand()
-		{
-			_pluginManager = new PluginManager();
-		}
-
+		public TabControl TabControl { get; set; }
+		public PFigure ActiveFigure { get; set; }
 		public PDraw ActivePDraw
 		{
+			get => _activePDraw;
 			set
 			{
 				_activePDraw = value;
-				_activePlugin.ActiveFigure = _activePDraw.ActiveFigure;
+				ActiveFigure = _activePDraw.ActiveFigure;
+				if (_activePlugin != null)
+					_activePlugin.ActiveFigure = _activePDraw.ActiveFigure;
 			}
 		}
 
-		public IPluginFigure ActivePlugin { get => _activePlugin; set { _activePlugin = value; OnFigurePluginChanged(); } }
+		public IPluginFigure ActiveFigurePlugin { get => _activePlugin; set { _activePlugin = value; OnFigurePluginChanged(); } }
 		public List<IPluginFigure> FigurePlugins { get => _pluginManager.figurePlugins; }
+		public List<IPluginFile> FilePlugins { get => _pluginManager.formatPlugins; }
 
 		public event Action OnFigurePluginChanged;
 
@@ -50,12 +54,32 @@ namespace Painter.Controllers
 
 		public void New()
 		{
-			throw new NotImplementedException();
+			PDraw pDraw = new PDraw(this);
+			pDraw.Text = "New tab";
+			TabControl.TabPages.Add(pDraw);
+			TabControl.SelectedTab = pDraw;
 		}
 
 		public void FileOpen()
 		{
-			throw new NotImplementedException();
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				var extension = Path.GetExtension(openFileDialog.FileName);
+				using (Stream stream = File.Open(openFileDialog.FileName, FileMode.Open))
+				{
+					using (var streamReader = new StreamReader(stream))
+					{
+						MTab mTab = FilePlugins.Find((x) => x.Name.ToLower() == extension.Substring(1)).Deserialize(streamReader.ReadToEnd());
+
+						PDraw pDraw = new PDraw(this);
+						pDraw.SetMemento(mTab);
+						TabControl.TabPages.Add(pDraw);
+						TabControl.SelectedTab = pDraw;
+					}
+				}
+			}
 		}
 
 		public void FileSave()
@@ -65,7 +89,26 @@ namespace Painter.Controllers
 
 		public void FileSaveAs()
 		{
-			throw new NotImplementedException();
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			saveFileDialog.Filter = "";
+			foreach (var plugin in FilePlugins)
+			{
+				//if (plugin.Enabled == true)
+					saveFileDialog.Filter += plugin.Name + "|*." + plugin.Name.ToLower();
+			}
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				var extension = Path.GetExtension(saveFileDialog.FileName);
+				using (Stream stream = File.Open(saveFileDialog.FileName, FileMode.Create))
+				{
+					using (var streamWritter = new StreamWriter(stream))
+					{
+						streamWritter.Write(
+							FilePlugins.Find((x) => x.Name.ToLower() == extension.Substring(1)).Serialize(_activePDraw.GetMemento())
+						);
+					}
+				}
+			}
 		}
 
 		public void CloseTab()
@@ -89,16 +132,6 @@ namespace Painter.Controllers
 		}
 
 		public void Exit()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ShowElements()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ShowProperties()
 		{
 			throw new NotImplementedException();
 		}
@@ -133,59 +166,44 @@ namespace Painter.Controllers
 			throw new NotImplementedException();
 		}
 
-		public void FigureColor()
+		public void ToggleVisible(Control control)
 		{
-			throw new NotImplementedException();
+			control.Visible = !control.Visible;
 		}
 
-		public void LineType()
+		public void SetType(XData.FigureType type)
 		{
-			throw new NotImplementedException();
+			if (ActiveFigure == null)
+				_activePDraw._xData.type = type;
+			else
+				ActiveFigure.Type = type;
 		}
 
-		public void RectangleType()
+		public void SetColor(Color color)
 		{
-			throw new NotImplementedException();
+			if (ActiveFigure == null)
+				_activePDraw._xData.color = color;
+			else
+				ActiveFigure.Color = color;
 		}
 
-		public void EllipseType()
+		public void SetLineWidth(int width)
 		{
-			throw new NotImplementedException();
+			if (ActiveFigure == null)
+				_activePDraw._xData.lineWidth = width;
+			else
+				ActiveFigure.LineWidth = width;
 		}
 
-		public void RoundedRectangleType()
+		public void TogglePlugin(IPluginFigure plugin)
 		{
-			throw new NotImplementedException();
+			plugin.Enabled = !plugin.Enabled;
 		}
 
-		public void ChangeLineWidth1()
+		public void InitializePluginManager()
 		{
-			throw new NotImplementedException();
-		}
 
-		public void ChangeLineWidth3()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ChangeLineWidth5()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ChangeLineWidth10()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ChangeLineWidth15()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void ChangeLineWidth20()
-		{
-			throw new NotImplementedException();
+			_pluginManager = new PluginManager();
 		}
 	}
 }

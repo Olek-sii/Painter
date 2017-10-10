@@ -75,7 +75,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\PDraw.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\PElements.cs">
       <SubType>Component</SubType>
@@ -101,6 +101,7 @@
     <Compile Include="Views\PToolBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Views\Utilities.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

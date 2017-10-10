@@ -8,19 +8,29 @@ namespace Painter.Views
 	{
 		public PFrame()
 		{
-			IXCommand xCommand = new FakeXCommand();
+			IXCommand xCommand = new XCommand();
+			xCommand.InitializePluginManager();
 
-			PDraw pDraw = new PDraw(xCommand);
-			pDraw.Dock = DockStyle.Fill;
-			//pDraw.BackColor = Color.Wheat;
-			//pDraw.BorderStyle = BorderStyle.FixedSingle;
-			Controls.Add(pDraw);
+			TabControl tabControl = new TabControl();
+			tabControl.Dock = DockStyle.Fill;
+			tabControl.Selected += delegate { xCommand.ActivePDraw = tabControl.SelectedTab as PDraw; };
+			Controls.Add(tabControl);
+
+			xCommand.TabControl = tabControl;
+
+			xCommand.New();
+			xCommand.New();
 
 			PElements pElements = new PElements(xCommand);
 			pElements.Dock = DockStyle.Left;
 			//pElements.BackColor = Color.Aqua;
-            pElements.Width = 100;
+            pElements.Width = 150;
 			Controls.Add(pElements);
+
+			PToolBox pToolBox = new PToolBox(xCommand);
+			pToolBox.Dock = DockStyle.Right;
+			pToolBox.Width = 200;
+			Controls.Add(pToolBox);
 
             PToolBar pToolBar = new PToolBar(xCommand);
             pToolBar.Dock = DockStyle.Top;

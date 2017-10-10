@@ -3,6 +3,6 @@
     public interface IPluginFile : IPlugin
     {
         string Serialize(MTab mTab);
-        MTab DeSerialize(string str);
+        MTab Deserialize(string str);
     }
 }

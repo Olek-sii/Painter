@@ -37,12 +37,6 @@ namespace Painter.Views
         private ToolStripMenuItem _formatsBtn;
         private ToolStripMenuItem _elementsPluginsBtn;
 
-        // MainMenu: Plug-ins : Formats
-        private ToolStripMenuItem _json;
-        private ToolStripMenuItem _yaml;
-        private ToolStripMenuItem _xml;
-        private ToolStripMenuItem _bin;
-
         // MainMenu: Plug-ins : Elements
         private ToolStripMenuItem _emptyFigure;
 
@@ -88,75 +82,82 @@ namespace Painter.Views
         // MainMenu: Help
         private ToolStripMenuItem _aboutBtn;
 
-        public PMainMenu(IXCommand xCommand)
+		public PMainMenu(IXCommand xCommand)
 		{
 			_xCommand = xCommand;
-            
-
-            // MainMenu
-            _debugBtn = new ToolStripMenuItem(Localization.GetText("debug_text_id"), null, delegate { _xCommand.Debug(); });
-            _fileBtn = new ToolStripMenuItem(Localization.GetText("file_text_id"));
-            _viewBtn = new ToolStripMenuItem(Localization.GetText("view_text_id"));
-            _pluginsBtn = new ToolStripMenuItem(Localization.GetText("plugins_text_id"));
-            _tabsBtn = new ToolStripMenuItem(Localization.GetText("tabs_text_id"));
-            _propertiesBtn = new ToolStripMenuItem(Localization.GetText("properties_text_id"));
-            _preferencesBtn = new ToolStripMenuItem(Localization.GetText("preferences_text_id"));
-            _helpBtn = new ToolStripMenuItem(Localization.GetText("help_text_id"));
-
-            // MainMenu: File
-            _newBtn = new ToolStripMenuItem(Localization.GetText("new_text_id"), null, delegate { _xCommand.New(); });
-            _openBtn = new ToolStripMenuItem(Localization.GetText("open_text_id"), null, delegate { _xCommand.FileOpen(); });
-            _saveBtn = new ToolStripMenuItem(Localization.GetText("save_text_id"), null, delegate { _xCommand.FileSave(); });
-            _saveAsBtn = new ToolStripMenuItem(Localization.GetText("save_as_text_id"), null, delegate { _xCommand.FileSaveAs(); });
-            _closeTabBtn = new ToolStripMenuItem(Localization.GetText("close_tab_text_id"), null, delegate { _xCommand.CloseTab(); });
-            _renameTabBtn = new ToolStripMenuItem(Localization.GetText("rename_tab_text_id"), null, delegate { _xCommand.RenameTab(); });
-            _openFromCloudBtn = new ToolStripMenuItem(Localization.GetText("open_from_cloud_text_id"), null, delegate { _xCommand.OpenFromCloud(); });
-            _saveInCloudBtn = new ToolStripMenuItem(Localization.GetText("save_in_text_id"), null, delegate { _xCommand.SaveInCloud(); });
-            _exitBtn = new ToolStripMenuItem(Localization.GetText("exit_text_id"), null, delegate { _xCommand.Exit(); });
-
-            // MainMenu: View
-            _elementsBtn = new ToolStripMenuItem(Localization.GetText("elements_text_id"), null, delegate { _xCommand.ShowElements(); });
-            _propertiesFileBtn = new ToolStripMenuItem(Localization.GetText("properties_text_id"), null, delegate { _xCommand.ShowProperties(); });
-
-            // MainMenu: Plug-ins
-            _formatsBtn = new ToolStripMenuItem(Localization.GetText("formats_text_id"));
-            _elementsPluginsBtn = new ToolStripMenuItem(Localization.GetText("elements_text_id"));
 
 
-            // MainMenu: Plug-ins : Formats
-            //_json = new ToolStripMenuItem(Localization.GetText("json_text_id"), null, delegate { _xCommand.AddJSON(); });
-            //_yaml = new ToolStripMenuItem(Localization.GetText("yaml_text_id"), null, delegate { _xCommand.AddYAML(); });
-            //_xml = new ToolStripMenuItem(Localization.GetText("xml_text_id"), null, delegate { _xCommand.AddXML(); });
-            //_bin = new ToolStripMenuItem(Localization.GetText("bin_text_id"), null, delegate { _xCommand.AddBIN(); });
+			// MainMenu
+			_debugBtn = new ToolStripMenuItem(Localization.GetText("debug_text_id"), null, delegate { _xCommand.Debug(); });
+			_fileBtn = new ToolStripMenuItem(Localization.GetText("file_text_id"));
+			_viewBtn = new ToolStripMenuItem(Localization.GetText("view_text_id"));
+			_pluginsBtn = new ToolStripMenuItem(Localization.GetText("plugins_text_id"));
+			_tabsBtn = new ToolStripMenuItem(Localization.GetText("tabs_text_id"));
+			_propertiesBtn = new ToolStripMenuItem(Localization.GetText("properties_text_id"));
+			_preferencesBtn = new ToolStripMenuItem(Localization.GetText("preferences_text_id"));
+			_helpBtn = new ToolStripMenuItem(Localization.GetText("help_text_id"));
 
-            // MainMenu: Plug-ins : Elements
-            _emptyFigure = new ToolStripMenuItem(Localization.GetText("empty_figure_text_id"), null, delegate { _xCommand.EmptyFigure(); });
+			// MainMenu: File
+			_newBtn = new ToolStripMenuItem(Localization.GetText("new_text_id"), null, delegate { _xCommand.New(); });
+			_openBtn = new ToolStripMenuItem(Localization.GetText("open_text_id"), null, delegate { _xCommand.FileOpen(); });
+			_saveBtn = new ToolStripMenuItem(Localization.GetText("save_text_id"), null, delegate { _xCommand.FileSave(); });
+			_saveAsBtn = new ToolStripMenuItem(Localization.GetText("save_as_text_id"), null, delegate { _xCommand.FileSaveAs(); });
+			_closeTabBtn = new ToolStripMenuItem(Localization.GetText("close_tab_text_id"), null, delegate { _xCommand.CloseTab(); });
+			_renameTabBtn = new ToolStripMenuItem(Localization.GetText("rename_tab_text_id"), null, delegate { _xCommand.RenameTab(); });
+			_openFromCloudBtn = new ToolStripMenuItem(Localization.GetText("open_from_cloud_text_id"), null, delegate { _xCommand.OpenFromCloud(); });
+			_saveInCloudBtn = new ToolStripMenuItem(Localization.GetText("save_in_text_id"), null, delegate { _xCommand.SaveInCloud(); });
+			_exitBtn = new ToolStripMenuItem(Localization.GetText("exit_text_id"), null, delegate { _xCommand.Exit(); });
+
+			// MainMenu: View
+			_elementsBtn = new ToolStripMenuItem(Localization.GetText("elements_text_id"), null, delegate { });
+			_propertiesFileBtn = new ToolStripMenuItem(Localization.GetText("properties_text_id"), null, delegate { });
+
+			// MainMenu: Plug-ins
+			_formatsBtn = new ToolStripMenuItem(Localization.GetText("formats_text_id"));
+			_elementsPluginsBtn = new ToolStripMenuItem(Localization.GetText("elements_text_id"));
 
 
-            // MainMenu: Tabs
-            _closeAllBtn = new ToolStripMenuItem(Localization.GetText("close_all_text_id"));
-            
-            // MainMenu: Properties
-            _figureBtn = new ToolStripMenuItem(Localization.GetText("figure_text_id"));
+			// MainMenu: Plug-ins : Formats
+			//_json = new ToolStripMenuItem(Localization.GetText("json_text_id"), null, delegate { _xCommand.AddJSON(); });
+			//_yaml = new ToolStripMenuItem(Localization.GetText("yaml_text_id"), null, delegate { _xCommand.AddYAML(); });
+			//_xml = new ToolStripMenuItem(Localization.GetText("xml_text_id"), null, delegate { _xCommand.AddXML(); });
+			//_bin = new ToolStripMenuItem(Localization.GetText("bin_text_id"), null, delegate { _xCommand.AddBIN(); });
 
-            // MainMenu: Properties : Figure
-            _figureTypesBtn = new ToolStripMenuItem(Localization.GetText("types_text_id"));
-            _figureLineWidthBtn = new ToolStripMenuItem(Localization.GetText("line_width_text_id"));
-            _figureColorBtn = new ToolStripMenuItem(Localization.GetText("color_text_id"), null, delegate { _xCommand.FigureColor(); });
+			// MainMenu: Plug-ins : Elements
+			_emptyFigure = new ToolStripMenuItem(Localization.GetText("empty_figure_text_id"), null, delegate { _xCommand.EmptyFigure(); });
+
+
+			// MainMenu: Tabs
+			_closeAllBtn = new ToolStripMenuItem(Localization.GetText("close_all_text_id"));
+
+			// MainMenu: Properties
+			_figureBtn = new ToolStripMenuItem(Localization.GetText("figure_text_id"));
+
+			// MainMenu: Properties : Figure
+			_figureTypesBtn = new ToolStripMenuItem(Localization.GetText("types_text_id"));
+			_figureLineWidthBtn = new ToolStripMenuItem(Localization.GetText("line_width_text_id"));
+			_figureColorBtn = new ToolStripMenuItem(Localization.GetText("color_text_id"), null, delegate
+			{
+				try
+				{
+					_xCommand.SetColor(Utilities.GetColor());
+				}
+				catch { }
+			});
 
             // MainMenu: Properties : Figure : Types
-            _lineBtn = new ToolStripMenuItem(Localization.GetText("line_text_id"), null, delegate { _xCommand.LineType(); });
-            _rectangleBtn = new ToolStripMenuItem(Localization.GetText("rectangle_text_id"), null, delegate { _xCommand.RectangleType(); });
-            _ellipseBtn = new ToolStripMenuItem(Localization.GetText("ellipse_text_id"), null, delegate { _xCommand.EllipseType(); });
-            _roundedRectangleBtn = new ToolStripMenuItem(Localization.GetText("rounded_rectangle_text_id"), null, delegate { _xCommand.RoundedRectangleType(); });
+            _lineBtn = new ToolStripMenuItem(Localization.GetText("line_text_id"), null, delegate { _xCommand.SetType(XData.FigureType.Line); });
+            _rectangleBtn = new ToolStripMenuItem(Localization.GetText("rectangle_text_id"), null, delegate { _xCommand.SetType(XData.FigureType.Rectangle); });
+            _ellipseBtn = new ToolStripMenuItem(Localization.GetText("ellipse_text_id"), null, delegate { _xCommand.SetType(XData.FigureType.Ellipse); });
+            _roundedRectangleBtn = new ToolStripMenuItem(Localization.GetText("rounded_rectangle_text_id"), null, delegate { _xCommand.SetType(XData.FigureType.RoundRectangle); });
 
             // MainMenu: Properties : Figure : Line Width
-            _width1Btn = new ToolStripMenuItem(Localization.GetText("width1_text_id"), null, delegate { _xCommand.ChangeLineWidth1(); });
-            _width3Btn = new ToolStripMenuItem(Localization.GetText("width3_text_id"), null, delegate { _xCommand.ChangeLineWidth3(); });
-            _width5Btn = new ToolStripMenuItem(Localization.GetText("width5_text_id"), null, delegate { _xCommand.ChangeLineWidth5(); });
-            _width10Btn = new ToolStripMenuItem(Localization.GetText("width10_text_id"), null, delegate { _xCommand.ChangeLineWidth10(); });
-            _width15Btn = new ToolStripMenuItem(Localization.GetText("width15_text_id"), null, delegate { _xCommand.ChangeLineWidth15(); });
-            _width20Btn = new ToolStripMenuItem(Localization.GetText("width20_text_id"), null, delegate { _xCommand.ChangeLineWidth20(); });
+            _width1Btn = new ToolStripMenuItem("1", null, delegate { _xCommand.SetLineWidth(1); });
+			_width3Btn = new ToolStripMenuItem("3", null, delegate { _xCommand.SetLineWidth(3); });
+			_width5Btn = new ToolStripMenuItem("5", null, delegate { _xCommand.SetLineWidth(5); });
+			_width10Btn = new ToolStripMenuItem("10", null, delegate { _xCommand.SetLineWidth(10); });
+			_width15Btn = new ToolStripMenuItem("15", null, delegate { _xCommand.SetLineWidth(15); });
+            _width20Btn = new ToolStripMenuItem("20", null, delegate { _xCommand.SetLineWidth(20); });
 
             // MainMenu: Preferences
             _languageBtn = new ToolStripMenuItem(Localization.GetText("language_text_id"));
@@ -182,14 +183,12 @@ namespace Painter.Views
 
 		private void _xCommand_OnFigurePluginChanged()
 		{
-			_elementsPluginsBtn.DropDownItems.Clear();
+			_propertiesBtn.DropDownItems.Clear();
 
-			if (_xCommand.ActivePlugin != null)
-				_elementsPluginsBtn.DropDownItems.Add(_xCommand.ActivePlugin.GetMenuStrip());
+			if (_xCommand.ActiveFigurePlugin != null)
+				_propertiesBtn.DropDownItems.Add(_xCommand.ActiveFigurePlugin.GetMenuStrip());
 
-			_elementsPluginsBtn.DropDownItems.Add(_emptyFigure);
-
-			FillMenu();
+			_propertiesBtn.DropDownItems.Add(_figureBtn);
 		}
 
 		private void FillMenu()
@@ -227,16 +226,22 @@ namespace Painter.Views
 			_pluginsBtn.DropDownItems.Add(_formatsBtn);
 			_pluginsBtn.DropDownItems.Add(_elementsPluginsBtn);
 
-
 			// MainMenu: Plug-ins : FormatsItems
-			//_formatsBtn.DropDownItems.Add(_json);
-			//_formatsBtn.DropDownItems.Add(_yaml);
-			//_formatsBtn.DropDownItems.Add(_xml);
-			//_formatsBtn.DropDownItems.Add(_bin);
+			foreach (IPluginFile plugin in _xCommand.FilePlugins)
+			{
+				_formatsBtn.DropDownItems.Add(plugin.Name);
+			}
 
 			// MainMenu: Plug-ins : ElementsItems
 			_elementsPluginsBtn.DropDownItems.Add(_emptyFigure);
 			_emptyFigure.Checked = true;
+
+			foreach (IPluginFigure plugin in _xCommand.FigurePlugins)
+			{
+				var toolStripMenuItem = new ToolStripMenuItem(plugin.Name, null, delegate { _xCommand.TogglePlugin(plugin); });
+				toolStripMenuItem.CheckOnClick = true;
+				_elementsPluginsBtn.DropDownItems.Add(toolStripMenuItem);
+			}
 
 			// MainMenu: Tabs
 			_tabsBtn.DropDownItems.Add(new ToolStripSeparator());
@@ -244,7 +249,6 @@ namespace Painter.Views
 
 			// MainMenu: Properties
 			_propertiesBtn.DropDownItems.Add(_figureBtn);
-
 
 			// MainMenu: Properties : Figure
 			_figureBtn.DropDownItems.Add(_figureTypesBtn);
@@ -267,7 +271,6 @@ namespace Painter.Views
 			_figureLineWidthBtn.DropDownItems.Add(_width20Btn);
 			_width1Btn.Checked = true;
 
-
 			// MainMenu: PreferencesItems
 			_preferencesBtn.DropDownItems.Add(_languageBtn);
 			_preferencesBtn.DropDownItems.Add(_skinBtn);
@@ -281,7 +284,6 @@ namespace Painter.Views
 			_skinBtn.DropDownItems.Add(_lightBtn);
 			_skinBtn.DropDownItems.Add(_darkBtn);
 			_lightBtn.Checked = true;
-
 
 			// MainMenu: HelpItems
 			_helpBtn.DropDownItems.Add(_aboutBtn);
@@ -317,13 +319,6 @@ namespace Painter.Views
             // MainMenu: Plug-insItems
             _formatsBtn.Text = Localization.GetText("formats_text_id");
             _elementsPluginsBtn.Text = Localization.GetText("elements_text_id");
-
-
-            // MainMenu: Plug-ins : FormatsItems
-            _json.Text = Localization.GetText("json_text_id");
-            _yaml.Text = Localization.GetText("yaml_text_id");
-            _xml.Text = Localization.GetText("xml_text_id");
-            _bin.Text = Localization.GetText("bin_text_id");
 
             // MainMenu: Plug-ins : ElementsItems
             _emptyFigure.Text = Localization.GetText("empty_figure_text_id");

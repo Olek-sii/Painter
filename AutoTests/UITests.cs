@@ -1,36 +1,61 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestStack.White;
-using TestStack.White.UIItems.Finders;
+﻿using System;
+using NUnit.Framework;
 using TestStack.White.UIItems.WindowItems;
+using TestStack.White;
+using TestStack.White.Factory;
+using TestStack.White.UIItems.MenuItems;
+using TestStack.White.UIItems.ListViewItems;
+using TestStack.White.UIItems.Actions;
+using TestStack.White.UIItems.Finders;
+using TestStack.White.UIItems;
+using System.Collections.Generic;
+//using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace AutoTests
 {
-	[TestClass]
+	[TestFixture]
     public class UITests
     {
         private Application _application;
 		private Window _mainWindow;
 
-		[TestCleanup]
+		[OneTimeTearDown]
         public void TestTearDown()
         {
 			_mainWindow.Close();
             _application.Close();
         }
 
-        [TestInitialize]
+        [OneTimeSetUp]
         public void SetUp()
         {
-			_application = Application.Launch(@"E:\projects\c#\Painter\plugins\Painter.exe");
+			var psi = new ProcessStartInfo(@"E:\projects\c#\Painter\plugins\Painter.exe");
+			_application = Application.AttachOrLaunch(psi);
 			_mainWindow = _application.GetWindows()[0];
 		}
 
-        [TestMethod]
-        public void TestMenu()
+        [TestCase("File", "New tab")]
+        [TestCase("File", "Open")]
+        [TestCase("File", "Save")]
+        [TestCase("File", "Save as...")]
+        [TestCase("File", "Close tab")]
+        [TestCase("File", "Rename tab")]
+        [TestCase("File", "Open from cloud")]
+        [TestCase("File", "Save in cluod")]
+        [TestCase("File", "Exit")]
+
+		[TestCase("View", "Elements")]
+		[TestCase("View", "Properties")]
+
+		[TestCase("Plug-ins", "")]
+
+
+		public void TestMenu(string firstIndex, string secondIndex)
         {
-			_mainWindow.Get(SearchCriteria.ByText("File")).Click();
-			_mainWindow.Get(SearchCriteria.ByText("Open")).Click();
-			var a = _mainWindow.ModalWindows()[0].Get(SearchCriteria.ByText("File open"));
+			_mainWindow.Get(SearchCriteria.ByText(firstIndex)).Click();
+			_mainWindow.Get(SearchCriteria.ByText(secondIndex)).Click();
+			var a = _mainWindow.ModalWindows()[0].Get(SearchCriteria.ByText(secondIndex));
 			Assert.IsNotNull(a);
 			_mainWindow.ModalWindows()[0].Close();
 		}

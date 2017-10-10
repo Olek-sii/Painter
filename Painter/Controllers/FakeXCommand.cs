@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Painter.Models;
 using Painter.Views;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Painter.Controllers
 {
@@ -11,12 +12,6 @@ namespace Painter.Controllers
 		private PDraw _activePDraw = null;
 		private IPluginFigure _activePlugin = null;
 		private PluginManager _pluginManager = null;
-
-		public FakeXCommand()
-		{
-			_pluginManager = new PluginManager();
-		}
-
 		public PDraw ActivePDraw
 		{
 			set
@@ -25,9 +20,12 @@ namespace Painter.Controllers
 				_activePlugin.ActiveFigure = _activePDraw.ActiveFigure;
 			}
 		}
-
-		public IPluginFigure ActivePlugin { get => _activePlugin; set { _activePlugin = value; OnFigurePluginChanged(); } }
+		public IPluginFigure ActiveFigurePlugin { get => _activePlugin; set { _activePlugin = value; OnFigurePluginChanged(); } }
 		public List<IPluginFigure> FigurePlugins { get => _pluginManager.figurePlugins; }
+
+		public List<IPluginFile> FilePlugins => throw new NotImplementedException();
+
+		public TabControl TabControl { get; set; }
 
 		public event Action OnFigurePluginChanged;
 
@@ -116,6 +114,11 @@ namespace Painter.Controllers
 			throw new NotImplementedException();
 		}
 
+		public void InitializePluginManager()
+		{
+			_pluginManager = new PluginManager();
+		}
+
 		public void LightSkin()
 		{
 			throw new NotImplementedException();
@@ -166,6 +169,21 @@ namespace Painter.Controllers
 			throw new NotImplementedException();
 		}
 
+		public void SetColor(Color color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetLineWidth(int width)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetType(XData.FigureType type)
+		{
+			throw new NotImplementedException();
+		}
+
 		public void ShowAbout()
 		{
 			throw new NotImplementedException();
@@ -177,6 +195,16 @@ namespace Painter.Controllers
 		}
 
 		public void ShowProperties()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void TogglePlugin(IPluginFigure plugin)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ToggleVisible(Control control)
 		{
 			throw new NotImplementedException();
 		}

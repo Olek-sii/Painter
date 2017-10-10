@@ -10,7 +10,8 @@ namespace FigureWithText
 		XCommand _xCommand = new XCommand();
 
 		public PFigure ActiveFigure { set => _xCommand.ActiveFigure = value; }
-		public string Name { get => "Figure with text"; }
+		public string Name => "Figure with text";
+		public bool Enabled { get; set; }
 
 		public RadioButton GetElements()
 		{
@@ -36,9 +37,9 @@ namespace FigureWithText
 			return menu;
 		}
 
-		public Panel GetToolBox()
+		public GroupBox GetToolBox()
 		{
-			throw new NotImplementedException();
+			return new GroupBox();
 		}
 
 		public ToolStrip GetToolStrip()

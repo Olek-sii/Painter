@@ -5,6 +5,6 @@ namespace Painter.Models
     public class MTab
     {
         public string Name { get; set; }
-        public List<MFigure> mFigure = null;
+        public List<MFigure> mFigures = null;
     }
 }

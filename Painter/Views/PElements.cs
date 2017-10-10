@@ -21,7 +21,7 @@ namespace Painter.Views
 			r.CheckedChanged += delegate
 			{
 				if (r.Checked)
-					_xCommand.ActivePlugin = null;
+					_xCommand.ActiveFigurePlugin = null;
 			};
 			Controls.Add(r);
 
@@ -32,7 +32,7 @@ namespace Painter.Views
 				rb.CheckedChanged += delegate
 				{
 					if (rb.Checked)
-						_xCommand.ActivePlugin = plugin;
+						_xCommand.ActiveFigurePlugin = plugin;
 				};
 				y += 20;
 				Controls.Add(rb);

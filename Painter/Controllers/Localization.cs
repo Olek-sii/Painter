@@ -24,7 +24,7 @@ namespace Painter.Controllers
 			else
 				locFile = "locale/locale_ru.json";
 
-			string res = "qwerty";
+			string res = "ID NOT FOUND";
 			using (StreamReader streamReader = new StreamReader(locFile))
 			{
 				JToken token = JObject.Parse(streamReader.ReadToEnd());

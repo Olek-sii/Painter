@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Painter.Models;
 using Painter.Controllers;
 using System.Drawing.Drawing2D;
+using System;
 
 namespace Painter.Views
 {
@@ -41,6 +42,21 @@ namespace Painter.Views
 			Paint += PFigure_Paint;
 		}
 
+		public  MFigure GetMemento()
+		{
+			var figure = new MFigure();
+			figure.x = Location.X;
+			figure.y = Location.Y;
+			figure.w = Width;
+			figure.h = Height;
+
+			figure.xData.color = _color;
+			figure.xData.lineWidth = _lineWidth;
+			figure.xData.type = _type;
+
+			return figure;
+		}
+
 		public PFigure(PFigure pFigure)
 		{
 			//ContextMenuStrip = new CtxMenu(xCommand);
@@ -59,8 +75,8 @@ namespace Painter.Views
 			Graphics g = CreateGraphics();
 			Pen pen = new Pen(_color, _lineWidth);
 			if (_type == XData.FigureType.Rectangle)
-				g.DrawRectangle(pen, new Rectangle(0, 0, Width - 3, Height - 3));
-			else if (_type == XData.FigureType.Round)
+				g.DrawRectangle(pen, new Rectangle(0, 0, Width - 1, Height - 1));
+			else if (_type == XData.FigureType.Ellipse)
 				g.DrawEllipse(pen, new Rectangle(0, 0, Width - 3, Height - 3));
 			else if (_type == XData.FigureType.Line)
 				g.DrawLine(pen, 0, 0, Width, Height);

@@ -27,11 +27,6 @@
   "close_all_text_id": "Close All",
   "figure_text_id": "Figure",
 
-  "json_text_id": "JSON",
-  "yaml_text_id": "YAML",
-  "xml_text_id": "XML",
-  "bin_text_id": "BIN",
-
   "empty_figure_text_id": "Empty figure",
 
   "russian_text_id": "Russian",
