@@ -52,14 +52,15 @@ namespace Painter.Views
 
 			_roundRect = new RadioButton();
 			_roundRect.Parent = _emptyFigureGroupBox;
-			_roundRect.Text = Localization.GetText("rectangle_text_id");
+			_roundRect.Text = Localization.GetText("rounded_rectangle_text_id");
 			_roundRect.Location = new System.Drawing.Point(10, 80);
 			_roundRect.CheckedChanged += delegate { if (_roundRect.Checked) _xCommand.SetType(Models.XData.FigureType.RoundRectangle); };
 
 			_color = new Button();
 			_color.Parent = _emptyFigureGroupBox;
 			_color.Text = Localization.GetText("color_text_id");
-			_color.Location = new System.Drawing.Point(60, 20);
+			_color.Location = new System.Drawing.Point(120, 20);
+			_color.Size = new System.Drawing.Size(60, 25);
 			_color.Click += delegate { try { _xCommand.SetColor(Utilities.GetColor()); } catch { } };
 
 
@@ -67,21 +68,29 @@ namespace Painter.Views
 			_xCommand.OnFigurePluginChanged += _xCommand_OnFigurePluginChanged;
 		}
 
-		private void FillToolBox()
-		{
-			_emptyFigureGroupBox.Controls.Add(_line);
-
-			Controls.Add(_emptyFigureGroupBox);
-		}
-
 		private void _xCommand_OnFigurePluginChanged()
 		{
-			//throw new NotImplementedException();
+            Controls.Clear();
+            Controls.Add(_emptyFigureGroupBox);
+
+            if (_xCommand.ActiveFigurePlugin != null)
+            {
+                var pluginToolBox = _xCommand.ActiveFigurePlugin.GetToolBox();
+                pluginToolBox.Parent = this;
+                pluginToolBox.Location = new System.Drawing.Point(0, 160);
+                pluginToolBox.Size = new System.Drawing.Size(Width - 10, 150);
+                Controls.Add(pluginToolBox);
+            }
 		}
 
-		private void Localization_OnLocalChange()
-		{
-			//throw new NotImplementedException();
-		}
+        private void Localization_OnLocalChange()
+        {
+            _emptyFigureGroupBox.Text = Localization.GetText("figure_text_id");
+            _line.Text = Localization.GetText("line_text_id");
+            _rect.Text = Localization.GetText("rectangle_text_id");
+            _ellipse.Text = Localization.GetText("ellipse_text_id");
+            _roundRect.Text = Localization.GetText("rounded_rectangle_text_id");
+            _color.Text = Localization.GetText("color_text_id");
+        }
 	}
 }

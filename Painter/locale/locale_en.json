@@ -1,5 +1,4 @@
 ﻿{
-  "debug_text_id": "Debug",
   "file_text_id": "File",
   "view_text_id": "View",
   "plugins_text_id": "Plug-ins",
@@ -42,13 +41,5 @@
   "line_text_id": "Line",
   "rectangle_text_id": "Rectangle",
   "ellipse_text_id": "Ellipse",
-  "rounded_rectangle_text_id": "Round rectangle",
-
-  "width1_text_id": "1",
-  "width3_text_id": "3",
-  "width5_text_id": "5",
-  "width10_text_id": "10",
-  "width15_text_id": "15",
-  "width20_text_id": "20"
-
+  "rounded_rectangle_text_id": "Round rectangle"
 }

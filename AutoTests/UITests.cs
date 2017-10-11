@@ -30,12 +30,12 @@ namespace AutoTests
         [OneTimeSetUp]
         public void SetUp()
         {
-			var psi = new ProcessStartInfo(@"E:\projects\c#\Painter\plugins\Painter.exe");
+			var psi = new ProcessStartInfo(@"C:\Users\Student\Desktop\11.10\Painter\plugins\Painter.exe");
 			_application = Application.AttachOrLaunch(psi);
 			_mainWindow = _application.GetWindows()[0];
 		}
 
-        [TestCase("File", "New tab")]
+        //[TestCase("File", "New tab")]
         [TestCase("File", "Open")]
         [TestCase("File", "Save")]
         [TestCase("File", "Save as...")]
@@ -44,13 +44,9 @@ namespace AutoTests
         [TestCase("File", "Open from cloud")]
         [TestCase("File", "Save in cluod")]
         [TestCase("File", "Exit")]
-
 		[TestCase("View", "Elements")]
 		[TestCase("View", "Properties")]
-
-		[TestCase("Plug-ins", "")]
-
-
+		//[TestCase("Plug-ins", "")]
 		public void TestMenu(string firstIndex, string secondIndex)
         {
 			_mainWindow.Get(SearchCriteria.ByText(firstIndex)).Click();

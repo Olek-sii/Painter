@@ -9,7 +9,7 @@ namespace Painter.Controllers
 {
 	public interface IXCommand
 	{
-		PDraw ActivePDraw { set; }
+        PFigure ActiveFigure { get; set; }
 		IPluginFigure ActiveFigurePlugin { get; set; }
 		List<IPluginFigure> FigurePlugins { get; }
 		List<IPluginFile> FilePlugins { get; }
@@ -38,7 +38,6 @@ namespace Painter.Controllers
 		void SetType(XData.FigureType type);
 		void SetColor(Color color);
 		void SetLineWidth(int width);
-		void Debug();
 		void TogglePlugin(IPluginFigure plugin);
 	}
 }

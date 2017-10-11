@@ -22,12 +22,12 @@ namespace Painter.Controllers
 		}
 		public IPluginFigure ActiveFigurePlugin { get => _activePlugin; set { _activePlugin = value; OnFigurePluginChanged(); } }
 		public List<IPluginFigure> FigurePlugins { get => _pluginManager.figurePlugins; }
-
-		public List<IPluginFile> FilePlugins => throw new NotImplementedException();
+		public List<IPluginFile> FilePlugins { get => _pluginManager.formatPlugins; }
 
 		public TabControl TabControl { get; set; }
+        public PFigure ActiveFigure { get; set; }
 
-		public event Action OnFigurePluginChanged;
+        public event Action OnFigurePluginChanged;
 
 		public void ChangeLineWidth1()
 		{

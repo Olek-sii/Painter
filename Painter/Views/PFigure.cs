@@ -40,7 +40,8 @@ namespace Painter.Views
 			_type = xData.type;
 
 			Paint += PFigure_Paint;
-		}
+            Click += PFigure_Click;
+        }
 
 		public  MFigure GetMemento()
 		{
@@ -68,9 +69,18 @@ namespace Painter.Views
 			_type = pFigure._type;
 
 			Paint += PFigure_Paint;
+            Click += PFigure_Click;
 		}
 
-		protected virtual void PFigure_Paint(object sender, PaintEventArgs e)
+        private void PFigure_Click(object sender, EventArgs e)
+        {
+            if ((Parent as PDraw).ActiveFigure == this)
+                (Parent as PDraw).ActiveFigure = null;
+            else
+                (Parent as PDraw).ActiveFigure = this;
+        }
+
+        protected virtual void PFigure_Paint(object sender, PaintEventArgs e)
 		{
 			Graphics g = CreateGraphics();
 			Pen pen = new Pen(_color, _lineWidth);

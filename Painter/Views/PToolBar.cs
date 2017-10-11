@@ -28,15 +28,15 @@ namespace Painter.Views
             _xCommand = xCommand;
 
             newBtn = new ToolStripButton(Localization.GetText("new_text_id"), null);
-            openBtn = new ToolStripButton(Localization.GetText("new_text_id"), null);
-            saveBtn = new ToolStripButton(Localization.GetText("new_text_id"), null);
-            loadCloudBtn = new ToolStripButton(Localization.GetText("new_text_id"), null);
-            saveCloudBtn = new ToolStripButton(Localization.GetText("new_text_id"), null);
+            openBtn = new ToolStripButton(Localization.GetText("open_text_id"), null);
+            saveBtn = new ToolStripButton(Localization.GetText("save_text_id"), null);
+            loadCloudBtn = new ToolStripButton(Localization.GetText("open_from_cloud_text_id"), null);
+            saveCloudBtn = new ToolStripButton(Localization.GetText("save_in_text_id"), null);
 
             typeCb = new ToolStripComboBox();
             widthCb = new ToolStripComboBox();
 
-            colorBtn = new ToolStripButton(Localization.GetText("new_text_id"), null);
+            colorBtn = new ToolStripButton(Localization.GetText("color_text_id"), null);
 
 
             Items.Add(newBtn);
@@ -48,7 +48,17 @@ namespace Painter.Views
             Items.Add(widthCb);
             Items.Add(colorBtn);
 
+            Localization.OnLocalChange += Localization_OnLocalChange;
+        }
 
+        private void Localization_OnLocalChange()
+        {
+            newBtn.Text = Localization.GetText("new_text_id");
+            openBtn.Text = Localization.GetText("open_text_id");
+            saveBtn.Text = Localization.GetText("save_text_id");
+            loadCloudBtn.Text = Localization.GetText("open_from_cloud_text_id");
+            saveCloudBtn.Text = Localization.GetText("save_in_text_id");
+            colorBtn.Text = Localization.GetText("color_text_id");
         }
     }
 }

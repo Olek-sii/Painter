@@ -9,7 +9,6 @@ namespace Painter.Views
 		private IXCommand _xCommand = null;
 
         // MainMenu
-        private ToolStripMenuItem _debugBtn;
         private ToolStripMenuItem _fileBtn;
         private ToolStripMenuItem _viewBtn;
         private ToolStripMenuItem _pluginsBtn;
@@ -88,7 +87,6 @@ namespace Painter.Views
 
 
 			// MainMenu
-			_debugBtn = new ToolStripMenuItem(Localization.GetText("debug_text_id"), null, delegate { _xCommand.Debug(); });
 			_fileBtn = new ToolStripMenuItem(Localization.GetText("file_text_id"));
 			_viewBtn = new ToolStripMenuItem(Localization.GetText("view_text_id"));
 			_pluginsBtn = new ToolStripMenuItem(Localization.GetText("plugins_text_id"));
@@ -196,7 +194,6 @@ namespace Painter.Views
 			Items.Clear();
 
 			// MainMenu
-			Items.Add(_debugBtn);
 			Items.Add(_fileBtn);
 			Items.Add(_viewBtn);
 			Items.Add(_pluginsBtn);
@@ -292,7 +289,6 @@ namespace Painter.Views
 		private void Localization_OnLocalChange()
 		{
             // MainMenu
-            _debugBtn.Text = Localization.GetText("debug_text_id");
             _fileBtn.Text = Localization.GetText("file_text_id");
             _viewBtn.Text = Localization.GetText("view_text_id");
             _pluginsBtn.Text = Localization.GetText("plugins_text_id");
@@ -340,14 +336,6 @@ namespace Painter.Views
             _rectangleBtn.Text = Localization.GetText("rectangle_text_id");
             _ellipseBtn.Text = Localization.GetText("ellipse_text_id");
             _roundedRectangleBtn.Text = Localization.GetText("rounded_rectangle_text_id");
-
-            // MainMenu: Properties : Figure : Line Width
-            _width1Btn.Text = Localization.GetText("width1_text_id");
-            _width3Btn.Text = Localization.GetText("width3_text_id");
-            _width5Btn.Text = Localization.GetText("width5_text_id");
-            _width10Btn.Text = Localization.GetText("width10_text_id");
-            _width15Btn.Text = Localization.GetText("width15_text_id");
-            _width20Btn.Text = Localization.GetText("width20_text_id");
 
             // MainMenu: PreferencesItems
             _languageBtn.Text = Localization.GetText("language_text_id");

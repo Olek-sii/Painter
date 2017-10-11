@@ -11,39 +11,26 @@ namespace Painter.Controllers
 {
 	public class XCommand : IXCommand
 	{	
-		private PDraw _activePDraw = null;
 		private IPluginFigure _activePlugin = null;
 		private PluginManager _pluginManager = null;
-		public TabControl TabControl { get; set; }
-		public PFigure ActiveFigure { get; set; }
-		public PDraw ActivePDraw
-		{
-			get => _activePDraw;
-			set
-			{
-				_activePDraw = value;
-				ActiveFigure = _activePDraw.ActiveFigure;
-				if (_activePlugin != null)
-					_activePlugin.ActiveFigure = _activePDraw.ActiveFigure;
-			}
-		}
+        private PFigure _activeFigure = null;
 
+		public TabControl TabControl { get; set; }
+		public PFigure ActiveFigure
+        {
+            get => _activeFigure;
+            set
+            {
+                _activeFigure = value;
+                if (_activePlugin != null)
+                    _activePlugin.ActiveFigure = _activeFigure;
+            }
+        }
 		public IPluginFigure ActiveFigurePlugin { get => _activePlugin; set { _activePlugin = value; OnFigurePluginChanged(); } }
 		public List<IPluginFigure> FigurePlugins { get => _pluginManager.figurePlugins; }
 		public List<IPluginFile> FilePlugins { get => _pluginManager.formatPlugins; }
 
 		public event Action OnFigurePluginChanged;
-
-
-		int dCalls = 0;
-		public void Debug()
-		{
-			System.Diagnostics.Debug.WriteLine("debug" + dCalls++);
-			if (dCalls % 2 == 1)
-				Localization.Locale = "ru";
-			else
-				Localization.Locale = "en";
-		}
 
 		public PFigure PluginProcess(PFigure figure)
 		{
@@ -104,7 +91,7 @@ namespace Painter.Controllers
 					using (var streamWritter = new StreamWriter(stream))
 					{
 						streamWritter.Write(
-							FilePlugins.Find((x) => x.Name.ToLower() == extension.Substring(1)).Serialize(_activePDraw.GetMemento())
+							FilePlugins.Find((x) => x.Name.ToLower() == extension.Substring(1)).Serialize((TabControl.SelectedTab as PDraw).GetMemento())
 						);
 					}
 				}
@@ -148,22 +135,22 @@ namespace Painter.Controllers
 
 		public void RussianLanguage()
 		{
-			throw new NotImplementedException();
+            Localization.Locale = "ru";
 		}
 
 		public void EnglishLanguage()
 		{
-			throw new NotImplementedException();
-		}
+            Localization.Locale = "en";
+        }
 
-		public void LightSkin()
+        public void LightSkin()
 		{
-			throw new NotImplementedException();
-		}
+            SkinController.Skin = "light";
+        }
 
-		public void DarkSkin()
+        public void DarkSkin()
 		{
-			throw new NotImplementedException();
+            SkinController.Skin = "dark";
 		}
 
 		public void ToggleVisible(Control control)
@@ -174,7 +161,7 @@ namespace Painter.Controllers
 		public void SetType(XData.FigureType type)
 		{
 			if (ActiveFigure == null)
-				_activePDraw._xData.type = type;
+                (TabControl.SelectedTab as PDraw)._xData.type = type;
 			else
 				ActiveFigure.Type = type;
 		}
@@ -182,7 +169,7 @@ namespace Painter.Controllers
 		public void SetColor(Color color)
 		{
 			if (ActiveFigure == null)
-				_activePDraw._xData.color = color;
+                (TabControl.SelectedTab as PDraw)._xData.color = color;
 			else
 				ActiveFigure.Color = color;
 		}
@@ -190,7 +177,7 @@ namespace Painter.Controllers
 		public void SetLineWidth(int width)
 		{
 			if (ActiveFigure == null)
-				_activePDraw._xData.lineWidth = width;
+                (TabControl.SelectedTab as PDraw)._xData.lineWidth = width;
 			else
 				ActiveFigure.LineWidth = width;
 		}

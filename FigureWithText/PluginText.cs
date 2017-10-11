@@ -39,7 +39,22 @@ namespace FigureWithText
 
 		public GroupBox GetToolBox()
 		{
-			return new GroupBox();
+            GroupBox groupBox = new GroupBox();
+            groupBox.Text = "Text";
+
+            TextBox textBox = new TextBox();
+            textBox.Location = new System.Drawing.Point(10, 20);
+            textBox.Size = new System.Drawing.Size(80,25);
+            groupBox.Controls.Add(textBox);
+
+            Button button = new Button();
+            button.Text = "Submit";
+            button.Location = new System.Drawing.Point(10, 50);
+            button.Size = new System.Drawing.Size(60, 25);
+            button.Click += delegate { _xCommand.SetText(textBox.Text); };
+            groupBox.Controls.Add(button);
+
+            return groupBox;
 		}
 
 		public ToolStrip GetToolStrip()

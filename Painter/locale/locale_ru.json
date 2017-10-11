@@ -42,12 +42,5 @@
   "line_text_id": "Линия",
   "rectangle_text_id": "Прямоугольник",
   "ellipse_text_id": "Круг",
-  "rounded_rectangle_text_id": "Закругленный прямоугльник",
-
-  "width1_text_id": "1",
-  "width3_text_id": "3",
-  "width5_text_id": "5",
-  "width10_text_id": "10",
-  "width15_text_id": "15",
-  "width20_text_id": "20"
+  "rounded_rectangle_text_id": "Закругленный прямоугльник"
 }

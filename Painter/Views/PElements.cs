@@ -37,6 +37,13 @@ namespace Painter.Views
 				y += 20;
 				Controls.Add(rb);
 			}
+
+            SkinController.OnSkinChange += SkinController_OnSkinChange;
 		}
-	}
+
+        private void SkinController_OnSkinChange()
+        {
+            BackColor = SkinController.GetColor("primaryColor");
+        }
+    }
 }

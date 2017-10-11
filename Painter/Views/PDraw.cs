@@ -19,7 +19,7 @@ namespace Painter.Views
 			set
 			{
 				_activeFigure = value;
-				_xCommand.ActivePDraw = this;
+				_xCommand.ActiveFigure = _activeFigure;
 			}
 		}
 

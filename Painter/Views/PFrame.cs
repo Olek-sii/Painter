@@ -13,17 +13,14 @@ namespace Painter.Views
 
 			TabControl tabControl = new TabControl();
 			tabControl.Dock = DockStyle.Fill;
-			tabControl.Selected += delegate { xCommand.ActivePDraw = tabControl.SelectedTab as PDraw; };
 			Controls.Add(tabControl);
 
 			xCommand.TabControl = tabControl;
 
-			xCommand.New();
-			xCommand.New();
-
 			PElements pElements = new PElements(xCommand);
 			pElements.Dock = DockStyle.Left;
-			//pElements.BackColor = Color.Aqua;
+            var c = SkinController.GetColor("primaryColor");
+            pElements.BackColor = c;
             pElements.Width = 150;
 			Controls.Add(pElements);
 
@@ -39,15 +36,11 @@ namespace Painter.Views
             PMainMenu pMainMenu = new PMainMenu(xCommand);
 			pMainMenu.Dock = DockStyle.Top;
 			pMainMenu.Height = 50;
-			//pMainMenu.BackColor = Color.Green;
 			Controls.Add(pMainMenu);
             
             PStatusBar pStatusBar = new PStatusBar(xCommand);
             pStatusBar.Dock = DockStyle.Bottom;
             Controls.Add(pStatusBar);
-
-            
-
         }
 	}
 }
