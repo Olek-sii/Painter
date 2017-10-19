@@ -1,5 +1,6 @@
 ﻿using Painter.Views;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace FigureWithText
 {
@@ -21,7 +22,28 @@ namespace FigureWithText
 			}
 		}
 
-		public void SetFont(Font font)
+        public void PickFont()
+        {
+            FontDialog fd = new FontDialog();
+            fd.ShowColor = true;
+
+            if(fd.ShowDialog() == DialogResult.Yes)
+            {
+                SetFont(fd.Font);
+            }
+        }
+
+        public void PickTextColor()
+        {
+            ColorDialog cd = new ColorDialog();
+
+            if (cd.ShowDialog() == DialogResult.Yes)
+            {
+                SetFont(cd.Color);
+            }
+        }
+
+        public void SetFont(Font font)
 		{
 			if (ActiveFigure == null)
 			{

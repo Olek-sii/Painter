@@ -78,7 +78,7 @@ namespace Painter.Views
                 var pluginToolBox = _xCommand.ActiveFigurePlugin.GetToolBox();
                 pluginToolBox.Parent = this;
                 pluginToolBox.Location = new System.Drawing.Point(0, 160);
-                pluginToolBox.Size = new System.Drawing.Size(Width - 10, 150);
+                pluginToolBox.Size = new System.Drawing.Size(Width - 10, 200);
                 Controls.Add(pluginToolBox);
             }
 		}
