@@ -177,7 +177,8 @@ namespace Painter.Views
 
 			Localization.OnLocalChange += Localization_OnLocalChange;
 			_xCommand.OnFigurePluginChanged += _xCommand_OnFigurePluginChanged;
-		}
+            SkinController.OnSkinChange += SkinController_OnSkinChange;
+        }
 
 		private void _xCommand_OnFigurePluginChanged()
 		{
@@ -353,6 +354,16 @@ namespace Painter.Views
 
             // MainMenu: HelpItems
             _aboutBtn.Text = Localization.GetText("about_text_id");
+        }
+        private void SkinController_OnSkinChange()
+        {
+            BackColor = SkinController.GetColor("primaryColor");
+            ForeColor = SkinController.GetColor("primaryTextColor");
+            foreach(ToolStripMenuItem item in this.Items)
+            {
+                //item.DropDown.BackColor = SkinController.GetColor("primaryTextColor");
+                //item.BackColor = SkinController.GetColor("primaryTextColor");
+            }
         }
     }
 }

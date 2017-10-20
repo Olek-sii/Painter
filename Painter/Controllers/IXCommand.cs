@@ -39,5 +39,5 @@ namespace Painter.Controllers
 		void SetColor(Color color);
 		void SetLineWidth(int width);
 		void TogglePlugin(IPluginFigure plugin);
-	}
+    }
 }

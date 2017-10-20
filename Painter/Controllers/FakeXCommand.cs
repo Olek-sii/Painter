@@ -174,7 +174,12 @@ namespace Painter.Controllers
 			throw new NotImplementedException();
 		}
 
-		public void SetLineWidth(int width)
+        public void SetColor(object v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetLineWidth(int width)
 		{
 			throw new NotImplementedException();
 		}

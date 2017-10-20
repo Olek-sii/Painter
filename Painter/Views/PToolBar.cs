@@ -49,6 +49,7 @@ namespace Painter.Views
             Items.Add(colorBtn);
 
             Localization.OnLocalChange += Localization_OnLocalChange;
+            SkinController.OnSkinChange += SkinController_OnSkinChange;
         }
 
         private void Localization_OnLocalChange()
@@ -59,6 +60,12 @@ namespace Painter.Views
             loadCloudBtn.Text = Localization.GetText("open_from_cloud_text_id");
             saveCloudBtn.Text = Localization.GetText("save_in_text_id");
             colorBtn.Text = Localization.GetText("color_text_id");
+        }
+
+        private void SkinController_OnSkinChange()
+        {
+            BackColor = SkinController.GetColor("primaryColor");
+            ForeColor = SkinController.GetColor("primaryTextColor");
         }
     }
 }

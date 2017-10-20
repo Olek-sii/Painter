@@ -1,10 +1,6 @@
 ﻿using Painter.Models;
 using Painter.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FigureWithImage
@@ -19,17 +15,33 @@ namespace FigureWithImage
 
         public RadioButton GetElements()
         {
-            throw new NotImplementedException();
+            RadioButton radioButton = new RadioButton();
+            radioButton.Text = Name;
+            radioButton.Name = Name;
+            return radioButton;
         }
 
         public ToolStripMenuItem GetMenuStrip()
         {
-            throw new NotImplementedException();
+            ToolStripMenuItem menu = new ToolStripMenuItem("Image plugin");
+            
+
+            return menu;
         }
 
         public GroupBox GetToolBox()
         {
-            throw new NotImplementedException();
+            GroupBox groupBox = new GroupBox();
+            groupBox.Text = "Image";
+
+            Button openImage = new Button();
+            openImage.Text = "Open Image";
+            openImage.Location = new System.Drawing.Point(10, 20);
+            openImage.Size = new System.Drawing.Size(100, 25);
+            openImage.Click += delegate { _xCommand.OpenImage(); };
+            groupBox.Controls.Add(openImage);
+            
+            return groupBox;
         }
 
         public ToolStrip GetToolStrip()
@@ -39,7 +51,7 @@ namespace FigureWithImage
 
         public PFigure Process(PFigure figure)
         {
-            throw new NotImplementedException();
+            return new FigureWithImage(figure, _xCommand.xImage);
         }
     }
 }

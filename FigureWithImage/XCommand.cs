@@ -25,5 +25,10 @@ namespace FigureWithImage
                 ActiveFigure.Invalidate();
             }
         }
+
+        internal void OpenImage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

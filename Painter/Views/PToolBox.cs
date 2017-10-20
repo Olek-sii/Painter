@@ -63,10 +63,31 @@ namespace Painter.Views
 			_color.Size = new System.Drawing.Size(60, 25);
 			_color.Click += delegate { try { _xCommand.SetColor(Utilities.GetColor()); } catch { } };
 
+            _lineWidthLabel = new Label();
+            _lineWidthLabel.Parent = _emptyFigureGroupBox;
+            _lineWidthLabel.Text = Localization.GetText("line_width_text_id");
+            _lineWidthLabel.Location = new System.Drawing.Point(120, 70);
+            _lineWidthLabel.Size = new System.Drawing.Size(60, 25);
 
-			Localization.OnLocalChange += Localization_OnLocalChange;
+
+            _lineWidth = new ComboBox();
+            _lineWidth.Parent = _emptyFigureGroupBox;
+            _lineWidth.Items.Add(1);
+            _lineWidth.Items.Add(3);
+            _lineWidth.Items.Add(5);
+            _lineWidth.Items.Add(10);
+            _lineWidth.Items.Add(15);
+            _lineWidth.Items.Add(20);
+            _lineWidth.SelectedIndex = 0;
+            _lineWidth.Text = Localization.GetText("color_text_id");
+            _lineWidth.Location = new System.Drawing.Point(120, 100);
+            _lineWidth.Size = new System.Drawing.Size(60, 25);
+            _lineWidth.Click += delegate { try { _xCommand.SetLineWidth(Int32.Parse(_lineWidth.SelectedText)); } catch { } };
+
+            Localization.OnLocalChange += Localization_OnLocalChange;
 			_xCommand.OnFigurePluginChanged += _xCommand_OnFigurePluginChanged;
-		}
+            SkinController.OnSkinChange += SkinController_OnSkinChange;
+        }
 
 		private void _xCommand_OnFigurePluginChanged()
 		{
@@ -78,7 +99,7 @@ namespace Painter.Views
                 var pluginToolBox = _xCommand.ActiveFigurePlugin.GetToolBox();
                 pluginToolBox.Parent = this;
                 pluginToolBox.Location = new System.Drawing.Point(0, 160);
-                pluginToolBox.Size = new System.Drawing.Size(Width - 10, 200);
+                pluginToolBox.Size = new System.Drawing.Size(Width - 10, 210);
                 Controls.Add(pluginToolBox);
             }
 		}
@@ -91,6 +112,13 @@ namespace Painter.Views
             _ellipse.Text = Localization.GetText("ellipse_text_id");
             _roundRect.Text = Localization.GetText("rounded_rectangle_text_id");
             _color.Text = Localization.GetText("color_text_id");
+            _lineWidthLabel.Text = Localization.GetText("line_width_text_id");
         }
-	}
+
+        private void SkinController_OnSkinChange()
+        {
+            BackColor = SkinController.GetColor("primaryColor");
+            ForeColor = SkinController.GetColor("primaryTextColor");
+        }
+    }
 }

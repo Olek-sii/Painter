@@ -8,6 +8,8 @@ namespace Painter.Views
 	{
 		private IXCommand _xCommand;
 
+
+
 		public PElements(IXCommand xCommand)
 		{
 			_xCommand = xCommand;
@@ -15,7 +17,7 @@ namespace Painter.Views
 			int y = 50;
 			RadioButton r = new RadioButton();
 			r.Text = "Empty Figure";
-			r.Location = new Point(10, y);
+            r.Location = new Point(10, y);
 			r.Checked = true;
 			y += 20;
 			r.CheckedChanged += delegate
@@ -44,6 +46,7 @@ namespace Painter.Views
         private void SkinController_OnSkinChange()
         {
             BackColor = SkinController.GetColor("primaryColor");
+            ForeColor = SkinController.GetColor("primaryTextColor");
         }
     }
 }
