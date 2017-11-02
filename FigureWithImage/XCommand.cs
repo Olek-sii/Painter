@@ -1,9 +1,11 @@
 ﻿using Painter.Views;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FigureWithImage
 {
@@ -28,7 +30,19 @@ namespace FigureWithImage
 
         internal void OpenImage()
         {
-            throw new NotImplementedException();
+            try
+            {
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    SetImage(open.FileName);
+                }
+            }
+            catch (Exception)
+            {
+                throw new ApplicationException("Failed loading image");
+            }
         }
     }
 }

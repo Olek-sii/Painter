@@ -10,9 +10,14 @@ namespace FigureWithImage
     {
         public string img;
 
+        public XImage()
+        {
+            
+        }
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
