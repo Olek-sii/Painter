@@ -61,7 +61,14 @@ namespace Painter.Views
 			_color.Text = Localization.GetText("color_text_id");
 			_color.Location = new System.Drawing.Point(120, 20);
 			_color.Size = new System.Drawing.Size(60, 25);
-			_color.Click += delegate { try { _xCommand.SetColor(Utilities.GetColor()); } catch { } };
+			_color.Click += delegate
+            {
+                try
+                {
+                    _xCommand.SetColor(Utilities.GetColor());
+                }
+                catch { }
+            };
 
             _lineWidthLabel = new Label();
             _lineWidthLabel.Parent = _emptyFigureGroupBox;

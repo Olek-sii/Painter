@@ -27,7 +27,7 @@ namespace FigureWithText
             FontDialog fd = new FontDialog();
             fd.ShowColor = true;
 
-            if(fd.ShowDialog() == DialogResult.Yes)
+            if(fd.ShowDialog() == DialogResult.OK)
             {
                 SetFont(fd.Font);
             }
@@ -37,9 +37,9 @@ namespace FigureWithText
         {
             ColorDialog cd = new ColorDialog();
 
-            if (cd.ShowDialog() == DialogResult.Yes)
+            if (cd.ShowDialog() == DialogResult.OK)
             {
-                SetFont(cd.Color);
+                SetColor(cd.Color);
             }
         }
 
@@ -56,7 +56,7 @@ namespace FigureWithText
 			}
 		}
 
-		public void SetFont(Color color)
+		public void SetColor(Color color)
 		{
 			if (ActiveFigure == null)
 			{

@@ -95,6 +95,7 @@ namespace FigureWithText
             TextBox textBox = new TextBox();
             textBox.Location = new System.Drawing.Point(70, 105);
             textBox.Size = new System.Drawing.Size(110,25);
+            textBox.TextChanged += delegate { _xCommand.SetText(textBox.Text); };
             groupBox.Controls.Add(textBox);
             
             Label lblTextRot = new Label();

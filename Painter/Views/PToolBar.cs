@@ -27,16 +27,23 @@ namespace Painter.Views
         {
             _xCommand = xCommand;
 
-            newBtn = new ToolStripButton(Localization.GetText("new_text_id"), null);
-            openBtn = new ToolStripButton(Localization.GetText("open_text_id"), null);
-            saveBtn = new ToolStripButton(Localization.GetText("save_text_id"), null);
-            loadCloudBtn = new ToolStripButton(Localization.GetText("open_from_cloud_text_id"), null);
-            saveCloudBtn = new ToolStripButton(Localization.GetText("save_in_text_id"), null);
+            newBtn = new ToolStripButton(Localization.GetText("new_text_id"), null, delegate { _xCommand.New(); });
+            openBtn = new ToolStripButton(Localization.GetText("open_text_id"), null, delegate { _xCommand.FileOpen(); });
+            saveBtn = new ToolStripButton(Localization.GetText("save_text_id"), null, delegate { _xCommand.FileSave(); });
+            loadCloudBtn = new ToolStripButton(Localization.GetText("open_from_cloud_text_id"), null, delegate { _xCommand.Exit(); });
+            saveCloudBtn = new ToolStripButton(Localization.GetText("save_in_text_id"), null, delegate { _xCommand.SaveInCloud(); });
 
             typeCb = new ToolStripComboBox();
             widthCb = new ToolStripComboBox();
 
-            colorBtn = new ToolStripButton(Localization.GetText("color_text_id"), null);
+            colorBtn = new ToolStripButton(Localization.GetText("color_text_id"), null, delegate
+            {
+                try
+                {
+                    _xCommand.SetColor(Utilities.GetColor());
+                }
+                catch { }
+            });
 
 
             Items.Add(newBtn);

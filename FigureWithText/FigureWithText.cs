@@ -18,7 +18,7 @@ namespace FigureWithText
 		{
 			base.PFigure_Paint(sender, e);
 			Graphics g = CreateGraphics();
-			g.DrawString(XText.text, DefaultFont, Brushes.Red, new Point(0,0));
+			g.DrawString(XText.text, XText.font, new SolidBrush(XText.color), new Point(0,0));
 		}
 	}
 }

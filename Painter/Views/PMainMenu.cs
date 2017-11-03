@@ -282,9 +282,11 @@ namespace Painter.Views
 			_skinBtn.DropDownItems.Add(_lightBtn);
 			_skinBtn.DropDownItems.Add(_darkBtn);
 			_lightBtn.Checked = true;
+            _lightBtn.CheckOnClick = true;
+            //_darkBtn.CheckOnClick = true;
 
-			// MainMenu: HelpItems
-			_helpBtn.DropDownItems.Add(_aboutBtn);
+            // MainMenu: HelpItems
+            _helpBtn.DropDownItems.Add(_aboutBtn);
 		}
 
 		private void Localization_OnLocalChange()
