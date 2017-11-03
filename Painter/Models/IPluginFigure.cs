@@ -8,7 +8,7 @@ namespace Painter.Models
 		ToolStrip GetToolStrip();
 		ToolStripMenuItem GetMenuStrip();
 		GroupBox GetToolBox();
-		RadioButton GetElements();
+		Button GetElements();
 
 		PFigure ActiveFigure { set; }
 		PFigure Process(PFigure figure);

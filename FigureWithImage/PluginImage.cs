@@ -13,12 +13,12 @@ namespace FigureWithImage
         public string Name => "Figure with image";
         public bool Enabled { get; set; }
 
-        public RadioButton GetElements()
+        public Button GetElements()
         {
-            RadioButton radioButton = new RadioButton();
-            radioButton.Text = Name;
-            radioButton.Name = Name;
-            return radioButton;
+            Button button = new Button();
+            button.Text = Name;
+            button.Name = Name;
+            return button;
         }
 
         public ToolStripMenuItem GetMenuStrip()

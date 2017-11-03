@@ -14,30 +14,29 @@ namespace Painter.Views
 		{
 			_xCommand = xCommand;
 
-			int y = 50;
-			RadioButton r = new RadioButton();
+			int y = 30;
+			Button r = new Button();
 			r.Text = "Empty Figure";
             r.Location = new Point(10, y);
-			r.Checked = true;
-			y += 20;
-			r.CheckedChanged += delegate
+            r.Width = 130;
+			y += 30;
+			r.Click += delegate
 			{
-				if (r.Checked)
-					_xCommand.ActiveFigurePlugin = null;
+                _xCommand.ActiveFigurePlugin = null;
 			};
 			Controls.Add(r);
 
 			foreach (var plugin in xCommand.FigurePlugins)
 			{
-				RadioButton rb = plugin.GetElements();
-				rb.Location = new Point(10, y);
-				rb.CheckedChanged += delegate
+				Button b = plugin.GetElements();
+				b.Location = new Point(10, y);
+                b.Width = 130;
+                b.Click += delegate
 				{
-					if (rb.Checked)
-						_xCommand.ActiveFigurePlugin = plugin;
+                    _xCommand.ActiveFigurePlugin = plugin;
 				};
-				y += 20;
-				Controls.Add(rb);
+				y += 30;
+				Controls.Add(b);
 			}
 
             SkinController.OnSkinChange += SkinController_OnSkinChange;

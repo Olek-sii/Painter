@@ -22,18 +22,11 @@ namespace FigureWithImage
         protected override void PFigure_Paint(object sender, PaintEventArgs e)
         {
             base.PFigure_Paint(sender, e);
-            Image img;
-            if (XImage.img == "")
+            if (XImage.img != null)
             {
-                img = new Bitmap(1, 1);
+                Graphics g = CreateGraphics();
+                g.DrawImage(XImage.img, 0, 0, Width, Height);
             }
-            else
-            {
-                img = new Bitmap(XImage.img);
-            }
-            Graphics g = CreateGraphics();
-            g.DrawImage(img, new Point(0, 0));
-            //g.DrawString(XText.text, DefaultFont, Brushes.Red, new Point(0, 0));
         }
     }
 }

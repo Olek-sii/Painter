@@ -15,7 +15,7 @@ namespace FigureWithImage
         public XImage xImage = new XImage();
 
 
-        public void SetImage(string img)
+        public void SetImage(Image img)
         {
             if (ActiveFigure == null)
             {
@@ -36,7 +36,7 @@ namespace FigureWithImage
                 open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
-                    SetImage(open.FileName);
+                    SetImage(new Bitmap(open.FileName));
                 }
             }
             catch (Exception)
